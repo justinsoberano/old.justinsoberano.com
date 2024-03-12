@@ -1,0 +1,279 @@
+
+::-webkit-scrollbar {
+    height: 12px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: lightgray;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track-piece {
+    display: none;
+}
+
+.container {
+    overflow: auto;
+    white-space: nowrap;
+    margin-top: -400px;
+    position: relative;
+    zoom: 0.8;
+}
+
+.card-back-button {
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Minecraft';
+    padding: 8px;
+    width: 50px;
+    margin-right: 10px;
+    display: inline-block;
+    color: white;
+    background: black;
+    text-align: center;
+    border-radius: 15px;
+    border: 4px solid rgb(164, 32, 32);
+}
+
+.card-back-button:hover {
+    border: 8px solid rgb(164, 32, 32);
+    padding: 4px;
+}
+
+.card-back-button:active {
+    border: 8px solid rgb(101, 20, 20);
+    padding: 4px;
+}
+
+.card-design {
+    white-space: normal;
+    display: inline-block;
+    margin: 10px;
+    background-color: rgba(0, 0, 0, 0.758);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    width: 450px;
+    height: 350px;
+    border: 4px solid white;
+    overflow-wrap: break-word;
+}
+
+.image {
+    border-radius: 10px 10px 0 0;
+}
+
+.employer {
+    margin-left: 15px;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    height: 50px;
+}
+
+.job-title {
+    font-family: 'Jetbrains';
+    font-weight: 800;
+    font-size: 15px;
+    color: white;
+    text-align: left;
+    margin-left: 15px;
+    margin-top: 30px;
+    word-spacing: -5px;
+}
+
+.job-description {
+    font-family: 'Jetbrains';
+    font-weight: 400;
+    font-size: 14px;
+    color: white;
+    text-align: left;
+    margin-left: 13.5px;
+    margin-top: -10px;
+    word-spacing: -5px;
+}
+
+.job-dates {
+    font-family: 'Jetbrains';
+    font-weight: normal;
+    font-size: 12px;
+    color: gray;
+    text-align: left;
+    margin-left: 325px;
+    word-spacing: -5px;
+    margin-top: -45px;
+}
+
+.mars-image {
+    border-radius: 10px 10px 0 0;
+    width: 325px;
+    height: 150px;
+    background-image: linear-gradient(to right, transparent, black),
+        url('../../images/experience_images/mars.png');
+}
+
+.computer-image {
+    border-radius: 10px 10px 0 0;
+    width: 325px;
+    height: 150px;
+    background-image: linear-gradient(to right, transparent, black),
+        url('../../images/experience_images/computer-vision.png');
+}
+
+.durham-image {
+    border-radius: 10px 10px 0 0;
+    width: 325px;
+    height: 150px;
+    background-image: linear-gradient(to right, transparent, black),
+        url('../../images/experience_images/durham.png');
+}
+
+.tech-stack {
+    width: 150px;
+    position: inline-block;
+    margin-top: -100%;
+    margin-bottom: 15px;
+    margin-left: 65%;
+}
+
+/* Fonts */
+@font-face {
+    font-family: 'Minecraft';
+    src: url('../../fonts/minecraft/minecraftregular-bmg3-webfont.woff2') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Minecraft';
+    src: url('../../fonts/minecraft/minecraftbold-nmk1-webfont.woff2') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Minecraft';
+    src: url('../../fonts/minecraft/minecraftitalic-r8mo-webfont.woff2') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Jetbrains';
+    src: url('../../fonts/jetbrains/JetBrainsMono-Regular.woff2') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Jetbrains';
+    src: url('../../fonts/jetbrains/JetBrainsMono-Bold.woff2') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Jetbrains';
+    src: url('../../fonts/jetbrains/JetBrainsMono-Italic.woff2') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Jetbrains';
+    src: url('../../fonts/jetbrains/JetBrainsMono-BoldItalic.woff2') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Jetbrains';
+    src: url('../../fonts/jetbrains/JetBrainsMono-ExtraBold.woff2') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Jetbrains';
+    src: url('../../fonts/jetbrains/JetBrainsMono-ExtraBoldItalic.woff2') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Jetbrains';
+    src: url('../../fonts/jetbrains/JetBrainsMono-Medium.woff2') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Jetbrains';
+    src: url('../../fonts/jetbrains/JetBrainsMono-MediumItalic.woff2') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Jetbrains';
+    src: url('../../fonts/jetbrains/JetBrainsMono-SemiBold.woff2') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Jetbrains';
+    src: url('../../fonts/jetbrains/JetBrainsMono-SemiBoldItalic.woff2') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Jetbrains';
+    src: url('../../fonts/jetbrains/JetBrainsMono-Light.woff2') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Jetbrains';
+    src: url('../../fonts/jetbrains/JetBrainsMono-LightItalic.woff2') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Jetbrains';
+    src: url('../../fonts/jetbrains/JetBrainsMono-ExtraLight.woff2') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Jetbrains';
+    src: url('../../fonts/jetbrains/JetBrainsMono-ExtraLightItalic.woff2') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Jetbrains';
+    src: url('../../fonts/jetbrains/JetBrainsMono-Thin.woff2') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Jetbrains';
+    src: url('../../fonts/jetbrains/JetBrainsMono-ThinItalic.woff2') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

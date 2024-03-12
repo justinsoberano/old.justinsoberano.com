@@ -1,0 +1,102 @@
+::-webkit-scrollbar {
+    height: 12px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: lightgray;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track-piece {
+    display: none;
+}
+.project-container {
+    overflow: auto;
+    white-space: nowrap;
+    margin-top: -250px;
+    zoom: 0.8;
+}
+
+.card-design-projects {
+    white-space: normal;
+    display: inline-block;
+    margin: 10px;
+    background-color: rgba(0, 0, 0, 0.758);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    width: 450px;
+    height: 220px;
+    position: relative;
+    border: 4px solid white;
+    overflow-wrap: break-word;
+}
+
+.project-title {
+    font-size: 1.4em;
+    margin-left: 15px;
+    margin-top: 20px;
+    font-weight: bold;
+    font-style: italic;
+    font-family: 'Minecraft';
+    color: white;
+    text-align: left;
+}
+
+.project-description {
+    font-size: 14px;
+    margin-left: 15px;
+    font-family: 'Jetbrains';
+    color: white;
+    margin-top: -20px;
+    text-align: left;
+    word-spacing: -5px;
+}
+
+.portfolio-gif-project {
+    border-radius: 0px 12px 12px 0;
+    width: 170px;
+    float: right;
+    height: 170px;
+}
+
+.portfolio-image {
+    border-radius: 0px 12px 12px 0;
+    width: 170px;
+    float: right;
+    height: 220px;
+    object-fit: cover;
+}
+
+.portfolio-techstack {
+    width: auto;
+    height: 40px;
+    bottom: 0;
+    padding: 14px;
+    position: absolute;
+}
+
+.project-back-button {
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Minecraft';
+    padding: 8px;
+    width: 50px;
+    margin-right: 10px;
+    display: inline-block;
+    color: white;
+    background: black;
+    text-align: center;
+    border-radius: 15px;
+    border: 4px solid rgb(164, 32, 32);
+}
+
+.project-back-button:hover {
+    border: 8px solid rgb(164, 32, 32);
+    padding: 4px;
+}
+
+.project-back-button:active {
+    border: 8px solid rgb(101, 20, 20);
+    padding: 4px;
+}
