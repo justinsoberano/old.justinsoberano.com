@@ -34,7 +34,7 @@ const CameraAnimation = () => {
     })
 }
 
-const audio = new Audio("/assets/audio/before_the_night.mp3");
+const audio = new Audio("/assets/audio/terraria_space.mp3");
 
 export default function Background() {
 
