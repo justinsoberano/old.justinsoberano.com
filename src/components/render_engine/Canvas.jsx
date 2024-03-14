@@ -35,6 +35,7 @@ const CameraAnimation = () => {
 }
 
 const audio = new Audio("/assets/audio/terraria_space.mp3");
+audio.loop = true;
 
 export default function Background() {
 
