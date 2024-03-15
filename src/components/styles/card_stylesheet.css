@@ -107,16 +107,22 @@
     border-radius: 10px 10px 0 0;
     width: 325px;
     height: 150px;
-    background-image: linear-gradient(to right, transparent, black),
+    background-image: linear-gradient(to right, transparent, rgb(0, 0, 0)),
         url('https://raw.githubusercontent.com/justinsoberano/portfolio-data/main/images/experience_images/mars.png');
+    background-size: 50% 100%, cover;
+    background-position: right, center; 
+    background-repeat: no-repeat, no-repeat; 
 }
 
 .computer-image {
     border-radius: 10px 10px 0 0;
     width: 325px;
     height: 150px;
-    background-image: linear-gradient(to right, transparent, black),
+    background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.417)),
         url('https://raw.githubusercontent.com/justinsoberano/portfolio-data/main/images/experience_images/computer-vision.png');
+    background-size: 50% 100%, cover;
+    background-position: right, center; 
+    background-repeat: no-repeat, no-repeat; 
 }
 
 .durham-image {
@@ -125,6 +131,9 @@
     height: 150px;
     background-image: linear-gradient(to right, transparent, black),
         url('https://raw.githubusercontent.com/justinsoberano/portfolio-data/main/images/experience_images/durham.png');
+    background-size: 50% 100%, cover;
+    background-position: right, center; 
+    background-repeat: no-repeat, no-repeat; 
 }
 
 .tech-stack {
