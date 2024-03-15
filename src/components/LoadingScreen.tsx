@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles/loading_stylesheet.css"
 
-export const LoadingScreen = ({started, onStarted}) => {
+export const LoadingScreen: React.FC<{ started: boolean; onStarted: () => void }> = ({ started, onStarted }) => {
     return (
         <>
             <div className={ started ? "loadingScreen--started" : "loadingScreen"} style={{

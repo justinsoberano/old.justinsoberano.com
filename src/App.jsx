@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect, useState } from "react";
-import Background from "./components/render_engine/Canvas";
+import Background from "./components/render_engine/Canvas.tsx";
 
 /* Remove styles whenever finished with website */
 

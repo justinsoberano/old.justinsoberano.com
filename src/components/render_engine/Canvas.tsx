@@ -1,23 +1,38 @@
 import React, { Suspense, useEffect, useState } from "react";
 import * as THREE from "three";
-import { Canvas, extend, useThree, useFrame } from "@react-three/fiber";
+import { Canvas, extend, useThree, useFrame, Node } from "@react-three/fiber";
 import { Effects, Sphere, Stars, Plane, Fisheye, Hud, Cloud } from "@react-three/drei";
 import { LetterI, LetterJ, LetterU, 
          LetterS, LetterT, LetterN } from "../../meshes/name/FirstName";
 import { LastLetterO1, LastLetterS, LastLetterA, 
          LastLetterB, LastLetterE, LastLetterN, 
          LastLetterO2, LastLetterR } from "../../meshes/name/LastName";
-import { FilmPass } from "/node_modules/three/examples/jsm/postprocessing/FilmPass.js";
-import { GlitchPass } from "/node_modules/three/examples/jsm/postprocessing/GlitchPass.js";
-import { UnrealBloomPass } from "/node_modules/three/examples/jsm/postprocessing/UnrealBloomPass.js";
-import {LoadingScreen} from "../LoadingScreen"
+import { FilmPass } from "three/examples/jsm/postprocessing/FilmPass.js";
+import { GlitchPass } from "three/examples/jsm/postprocessing/GlitchPass.js";
+import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
+import {LoadingScreen} from "../LoadingScreen.tsx"
 import { Buttons } from "../Buttons";
-import { Sphere_one } from "../../meshes/geometries/shapes";
+import { Planets } from "../../meshes/geometries/shapes.tsx";
 import "../styles/canvas_stylesheet.css";
 
 extend({ FilmPass, GlitchPass, UnrealBloomPass })
 
-const CameraAnimation = () => {
+declare global {
+    namespace JSX {
+        interface IntrinsicElements {
+            unrealBloomPass: Omit<Node<UnrealBloomPass, typeof UnrealBloomPass>, 'args'> & {
+                attachArray?: string;
+                args?: [number | undefined, number, number, number];
+              };
+              filmPass: Omit<Node<FilmPass, typeof FilmPass>, 'args'> & {
+                attachArray?: string;
+                args?: [number, number, number, boolean];
+              };
+        }
+    }
+}
+
+const CameraAnimation: React.FC = () => {
     const [started, setStarted] = useState(false)
     const vec = new THREE.Vector3();
     const { viewport } = useThree();
@@ -31,13 +46,15 @@ const CameraAnimation = () => {
             else if (viewport.aspect <= 0.7) 
                 state.camera.position.lerp(vec.set(0, -4, 6), .025);
         }
-    })
+    });
+
+    return null;
 }
 
 const audio = new Audio("/assets/audio/terraria_space.mp3");
 audio.loop = true;
 
-export default function Background() {
+const Background: React.FC = () =>{
 
     const [start, setStart] = useState(false)
     const [showSound, setShowSound] = useState(true)
@@ -45,7 +62,6 @@ export default function Background() {
     const pauseAudio = () => {
         audio.pause();
     }
-
     const startAudio = () => {
         audio.play();
     }
@@ -67,7 +83,7 @@ export default function Background() {
                         <Lighting />
                         <FirstName />
                         <LastName />
-                        <Sphere_one />
+                        <Planets />
                         <CameraAnimation />
                     </>
                 } </Suspense>
@@ -83,7 +99,7 @@ export default function Background() {
     );  
 }
 
-const FirstName = () => {
+const FirstName: React.FC = () => {
     return (
         <group>
             <LetterJ />
@@ -96,7 +112,7 @@ const FirstName = () => {
     );
 }
 
-const LastName = () => {
+const LastName: React.FC = () => {
     return(
         <group>
             <LastLetterS />
@@ -111,7 +127,7 @@ const LastName = () => {
     )
 }
 
-const Lighting = () => {
+const Lighting: React.FC = () => {
     return (
         <group>
             <ambientLight intensity={0} />
@@ -119,7 +135,7 @@ const Lighting = () => {
         </group>
     )
 }
-const EffectsComposer = () => {
+const EffectsComposer: React.FC = () => {
     const {viewport} = useThree();
     let bloom = viewport.aspect >= 0.7 ? 0.5 : 0.8;
     return (
@@ -131,3 +147,5 @@ const EffectsComposer = () => {
         </group>
     )
 }
+
+export default Background;
