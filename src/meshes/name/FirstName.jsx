@@ -34,7 +34,7 @@ const PositionSpring = (pX, pY, pZ, newX, delay) => {
     }
 }
 
-const rotationSpring = (rX, rY, rZ, mass, tension, friction, delay) => {
+const RotationSpring = (rX, rY, rZ, mass, tension, friction, delay) => {
     return new useSpring({ 
         from: { rotation: [0, 0, 0] }, 
         to: [
@@ -85,7 +85,7 @@ export function LetterJ(props) {
     const JMesh = useRef();
     const { viewport } = useThree();
     const positionAnimation = PositionSpring(-viewport.aspect * 2.5, 0, 0,-viewport.aspect * 2.1 ,0);
-    const rotationAnimation = rotationSpring(Math.PI / 2, 0.6, 6, 3.5, 200, 50, 0);
+    const rotationAnimation = RotationSpring(Math.PI / 2, 0.6, 6, 3.5, 200, 50, 0);
     const scale = ScaleSpring(0);
     FloatAnimation(JMesh, Math.cos, Math.sin, Math.sin);
 
@@ -111,7 +111,7 @@ export function LetterU(props) {
     const UMesh = useRef();
     const { viewport } = useThree();
     const positionAnimation = PositionSpring(-viewport.aspect * 1.5, -viewport.aspect * 1.6, 0, -viewport.aspect * 1.2, 100);  
-    const rotationAnimation = rotationSpring(Math.PI / 4, -0.4, 3, 3.5, 200, 50, 100);
+    const rotationAnimation = RotationSpring(Math.PI / 4, -0.4, 3, 3.5, 200, 50, 100);
     const scale = ScaleSpring(100);
     FloatAnimation(UMesh, Math.cos, Math.cos, Math.cos)
 
@@ -138,7 +138,7 @@ export function LetterS(props) {
     const { viewport } = useThree();
     const positionAnimation = PositionSpring(-viewport.aspect, viewport.aspect, -0.5, -viewport.aspect / 2.8, 200);
                                                                 /* mass, tension, friction */
-    const rotationAnimation = rotationSpring(Math.PI/1.5, 0, -1, 3.5, 200, 55, 0);
+    const rotationAnimation = RotationSpring(Math.PI/1.5, 0, -1, 3.5, 200, 55, 0);
     const scale = ScaleSpring(200);
     FloatAnimation(SMesh, Math.cos, Math.cos, Math.cos);
 
@@ -164,7 +164,7 @@ export function LetterT(props) {
     const TMesh = useRef();
     const { viewport } = useThree();
     const positionAnimation = PositionSpring(viewport.aspect * 1.2, viewport.aspect * 1.2, 0, viewport.aspect / 2.2 , 300);
-    const rotationAnimation = rotationSpring(Math.PI / 1.3, 0, 1, 2, 200, 50, 200);
+    const rotationAnimation = RotationSpring(Math.PI / 1.3, 0, 1, 2, 200, 50, 200);
     const scale = ScaleSpring(200);
     FloatAnimation(TMesh, Math.sin, Math.sin, Math.cos);
 
@@ -190,7 +190,7 @@ export function LetterI(props) {
     const IMesh = useRef();
     const { viewport } = useThree();
     const positionAnimation = PositionSpring(viewport.aspect * 2, -viewport.aspect, 0, viewport.aspect * 1.12, 400);
-    const rotationAnimation = rotationSpring(Math.PI / 3, 0.4, 1, 3.5, 200, 50, 430);
+    const rotationAnimation = RotationSpring(Math.PI / 3, 0.4, 1, 3.5, 200, 50, 430);
     const scale = ScaleSpring(300);
     FloatAnimation(IMesh, Math.sin, Math.sin, Math.sin);
 
@@ -216,7 +216,7 @@ export function LetterN(props) {
     const NMesh = useRef();
     const { viewport } = useThree();
     const positionAnimation = PositionSpring(viewport.aspect * 2.5, 0.1, 0, viewport.aspect * 1.85, 500);
-    const rotationAnimation = rotationSpring(Math.PI / 2, -0.5, 1.2, 3.5, 200, 50, 550);
+    const rotationAnimation = RotationSpring(Math.PI / 2, -0.5, 1.2, 3.5, 200, 50, 550);
     const scale = ScaleSpring(400);
     FloatAnimation(NMesh, Math.sin, Math.sin, Math.cos);
 
