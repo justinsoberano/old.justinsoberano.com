@@ -42,7 +42,7 @@ export const Contact = (props: {
                 </a.div>
 
                 <a.div className="button-design noselect light-purple" 
-                    onClick={() => openInNewTab(require('./data/resume/resume.pdf'))}
+                    onClick={() => openInNewTab("https://docs.google.com/viewer?url=https://github.com/justinsoberano/portfolio-data/raw/main/resume/resume.pdf")}
                     style={{ ...ContactSpring() }}>
                     <span className="button-text">resume</span>
                 </a.div>
