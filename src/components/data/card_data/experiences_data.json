@@ -1,0 +1,30 @@
+[
+    {
+      "id": "seInternAIML",
+      "cssImageClass": "computer-image",
+      "techStackImage": "./data/images/experience_images/Tech_2.png",
+      "employerImage": "./data/images/experience_images/nasa_logo_white.png",
+      "dates": "JUN '23 - AUG '23",
+      "title": "Software Engineering Intern - AI/ML",
+      "description": "Currently under an NDA for this project. I unfortunately cannot disclose the exact details on the work that I did for this internship in the public domain but I am allowed to speak on it privately! Contact me for more info!"
+    },
+    {
+      "id": "seInternDigitalTwins",
+      "cssImageClass": "mars-image",
+      "techStackImage": "./data/images/experience_images/Tech_1.png",
+      "employerImage": "./data/images/experience_images/nasa_logo_white.png",
+      "dates": "AUG '22 - DEC '22",
+      "title": "Software Engineering Intern - Digital Twins",
+      "description": "In a team of four, we developed digital twins for future space missions. These digital twins will be used to train astronauts for future Artemis missions. Currently being used by NASA's CHAPEA group!"
+    },
+    {
+      "id": "technicalAssistantISU",
+      "cssImageClass": "durham-image",
+      "techStackImage": "./data/images/experience_images/Tech_3.png",
+      "employerImage": "./data/images/experience_images/isu.png",
+      "dates": "JAN '22 - MAY '22",
+      "title": "Technical Assistant",
+      "description": "Worked with a team of nine to monitor and administer administration level devices all throughout campus. Helped order IT equipment for various departments when needed."
+    }
+  ]
+  

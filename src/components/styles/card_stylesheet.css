@@ -108,7 +108,7 @@
     width: 325px;
     height: 150px;
     background-image: linear-gradient(to right, transparent, black),
-        url('../../images/experience_images/mars.png');
+        url('../data/images/experience_images/mars.png');
 }
 
 .computer-image {
@@ -116,7 +116,7 @@
     width: 325px;
     height: 150px;
     background-image: linear-gradient(to right, transparent, black),
-        url('../../images/experience_images/computer-vision.png');
+        url('../data/images/experience_images/computer-vision.png');
 }
 
 .durham-image {
@@ -124,7 +124,7 @@
     width: 325px;
     height: 150px;
     background-image: linear-gradient(to right, transparent, black),
-        url('../../images/experience_images/durham.png');
+        url('../data/images/experience_images/durham.png');
 }
 
 .tech-stack {

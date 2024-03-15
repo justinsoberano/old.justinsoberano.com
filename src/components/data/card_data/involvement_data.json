@@ -1,0 +1,34 @@
+[
+    {
+        "id": "peerMentor",
+        "image": "./data/images/involvement_images/iowa_state.png",
+        "title": "Peer Mentor",
+        "description": "I am currently a peer mentor for first-year software engineering students. I help them by being a resource for them to ask questions and get help.",
+        "link": "https://se.iastate.edu/meet-the-peer-mentors/",
+        "linkText": "Meet the peer mentors."
+    },
+    {
+        "id": "undergradTA",
+        "image": "./data/images/involvement_images/iowa_state.png",
+        "title": "Undergraduate TA",
+        "description": "I was a Teaching Assistant for a programming course in taught Java. I led weekly labs and office hours for students to get help with their assignments and projects.",
+        "link": "",
+        "linkText": ""
+    },
+    {
+        "id": "hackClub",
+        "image": "./data/images/involvement_images/hack_club.png",
+        "title": "Hack Club",
+        "description": "I was part of the Hack Club executive team for over a year. I helped organize hackathons and workshops for students to learn how to code.",
+        "link": "https://www.stuorg.iastate.edu/hack",
+        "linkText": "Official club page."
+    },
+    {
+        "id": "devsDoGood",
+        "image": "./data/images/involvement_images/devsdogood.png",
+        "title": "DevsDoGood",
+        "description": "I was part of a team for DevsDoGood to create a website for the non-profit West Des Moines Community School Alumni Association.",
+        "link": "https://www.devsdogood.org/",
+        "linkText": "Check out DevsDoGood!"
+    }
+]

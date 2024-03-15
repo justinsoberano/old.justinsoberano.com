@@ -51,7 +51,7 @@ export function LastLetterS(props) {
     const meshS = useRef();
     const {viewport} = useThree();
     const { nodes, materials } = useGLTF("assets/letters/bit_s.gltf");
-    const position = Position(-viewport.aspect * 3.6, -1.8, -1,
+    const position = Position(-viewport.aspect * 3.6, -1.4, -1,
                               -viewport.aspect * 2.8, (0.475 - viewport.aspect * 0.5), -3);
     const scale = Scale();
     return (
@@ -73,7 +73,7 @@ export function LastLetterS(props) {
 export function LastLetterO1(props) {
     const { viewport } = useThree();
     const { nodes, materials } = useGLTF("assets/letters/bit_o.gltf");
-    const position = Position(-viewport.aspect * 2.63, -1.8, -1,
+    const position = Position(-viewport.aspect * 2.63, -1.4, -1,
         -viewport.aspect * 2, (0.475 - viewport.aspect * 0.3), -3);
     const scale = Scale();
     return (
@@ -94,7 +94,7 @@ export function LastLetterO1(props) {
 export function LastLetterB(props) {
     const { viewport } = useThree();
     const { nodes, materials } = useGLTF("assets/letters/bit_b.gltf");
-    const position = Position(-viewport.aspect * 1.65, -1.8, -1,
+    const position = Position(-viewport.aspect * 1.65, -1.4, -1,
         -viewport.aspect * 1.2, (0.475 - viewport.aspect * 0.3), -3);
     const scale = Scale();
     return (
@@ -114,7 +114,7 @@ export function LastLetterB(props) {
 export function LastLetterE(props) {
     const { viewport } = useThree();
     const { nodes, materials } = useGLTF("assets/letters/bit_e.gltf");
-    const position = Position(-viewport.aspect / 1.45, -1.8, -1,
+    const position = Position(-viewport.aspect / 1.45, -1.4, -1,
         -viewport.aspect / 2.1, (0.475 - viewport.aspect * 0.3), -3);
     const scale = Scale();
     return (
@@ -134,7 +134,7 @@ export function LastLetterE(props) {
 export function LastLetterR(props) {
     const { viewport } = useThree();
     const { nodes, materials } = useGLTF("assets/letters/bit_r.gltf");
-    const position = Position(viewport.aspect / 4, -1.8, -1,
+    const position = Position(viewport.aspect / 4, -1.4, -1,
         viewport.aspect / 4, (0.475 - viewport.aspect * 0.3), -3);
     const scale = Scale();
     return (
@@ -154,7 +154,7 @@ export function LastLetterR(props) {
 export function LastLetterA(props) {
     const { viewport } = useThree();
     const { nodes, materials } = useGLTF("assets/letters/bit_a.gltf");
-    const position = Position(viewport.aspect * 1.2, -1.8, -1,
+    const position = Position(viewport.aspect * 1.2, -1.4, -1,
         viewport.aspect, (0.475 - viewport.aspect * 0.3), -3);
     const scale = Scale();
     return (
@@ -174,7 +174,7 @@ export function LastLetterA(props) {
 export function LastLetterN(props) {
     const { viewport } = useThree();
     const { nodes, materials } = useGLTF("assets/letters/bit_n.gltf");
-    const position = Position(viewport.aspect * 2.2, -1.8, -1,
+    const position = Position(viewport.aspect * 2.2, -1.4, -1,
         viewport.aspect * 1.75, (0.475 - viewport.aspect * 0.3), -3);
     const scale = Scale();
     return (
@@ -195,7 +195,7 @@ export function LastLetterN(props) {
 export function LastLetterO2(props) {
     const { viewport } = useThree();
     const { nodes, materials } = useGLTF("assets/letters/bit_o.gltf");
-    const position = Position(viewport.aspect * 3.2, -1.8, -1,
+    const position = Position(viewport.aspect * 3.2, -1.4, -1,
         viewport.aspect * 2.5, (0.475 - viewport.aspect * 0.3), -3);
     const scale = Scale();
     return (

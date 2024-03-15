@@ -44,7 +44,7 @@ const CameraAnimation: React.FC = () => {
             if(viewport.aspect > 0.7) 
                 state.camera.position.lerp(vec.set(0, -3, 7), .025);
             else if (viewport.aspect <= 0.7) 
-                state.camera.position.lerp(vec.set(0, -4, 6), .025);
+                state.camera.position.lerp(vec.set(0, -3, 5), .025);
         }
     });
 
