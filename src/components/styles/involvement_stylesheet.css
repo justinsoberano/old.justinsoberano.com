@@ -1,0 +1,63 @@
+::-webkit-scrollbar {
+    height: 12px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: lightgray;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track-piece {
+    display: none;
+}
+
+.involvement-container {
+    overflow: auto;
+    white-space: nowrap;
+    margin-top: -189px;
+    zoom: 0.8;
+}
+
+.card-design-involvement {
+    white-space: normal;
+    display: inline-block;
+    margin: 10px;
+    background-color: rgba(0, 0, 0, 0.758);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    width: 450px;
+    height: 150px;
+    position: relative;
+    border: 4px solid white;
+    overflow-wrap: break-word;
+}
+
+.involvement-title {
+    font-size: 1.4em;
+    margin-left: 15px;
+    margin-top: 20px;
+    font-weight: bold;
+    font-style: italic;
+    font-family: 'Minecraft';
+    color: white;
+    text-align: left;
+}
+
+.involvement-description {
+    font-size: 14px;
+    margin-left: 15px;
+    font-family: 'Jetbrains';
+    color: white;
+    margin-top: -20px;
+    text-align: left;
+    word-spacing: -5px;
+}
+
+.involvement-image {
+    border-radius: 0px 12px 12px 0;
+    width: 150px;
+    float: right;
+    height: 150px;
+    object-fit: cover;
+}

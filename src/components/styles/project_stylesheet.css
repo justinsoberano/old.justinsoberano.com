@@ -11,10 +11,11 @@
 ::-webkit-scrollbar-track-piece {
     display: none;
 }
+
 .project-container {
     overflow: auto;
     white-space: nowrap;
-    margin-top: -250px;
+    margin-top: -255px;
     zoom: 0.8;
 }
 

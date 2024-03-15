@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {useSpring , a} from "@react-spring/web";
 import { Experience } from "./Experience";
 import { Contact } from "./Contact";
+import { Involvement } from "./Involvement";
 import { Projects } from "./Projects";
 import "./styles/button_stylesheet.css";
 import "./styles/card_stylesheet.css"
@@ -20,7 +21,7 @@ export const Buttons = () => {
         })
     }
 
-    const [timer, setTimer] = useState(2200)
+    const [timer, setTimer] = useState(1900)
     const [showButtons, setButtons] = useState(true);
     const [showExperience, setExperience] = useState(true)
     const [showProjects, setProjects] = useState(true)
@@ -43,9 +44,12 @@ export const Buttons = () => {
                     <span className="button-text">projects</span>
                 </a.div>
 
-                <a.div className="unimplemented-button noselect" style={{ ...ButtonSprings(timer + 150) }}>
-                    <span className="unimplemented-button-text">involvement</span>
+                <a.div className="button-design noselect coral"
+                       onClick={() => { setButtons(!showButtons); setInvolvement(!showInvolvement); }}    
+                       style={{ ...ButtonSprings(timer + 150) }}>
+                    <span className="button-text">involvement</span>
                 </a.div>
+
                 <a.div className="button-design noselect pink"
                        onClick={() => { setButtons(!showButtons); setContact(!showContact); }}  
                        style={{ ...ButtonSprings(timer + 200) }}>
@@ -66,7 +70,14 @@ export const Buttons = () => {
                 changeShowContact = {showContact => setContact(showContact)}
                 s = { showContact }
             />
-            
+
+            <Involvement
+                changeShow = {show => setButtons(show)}
+                changeTimer = {timer => setTimer(timer)}
+                changeShowInvolvement = {showInvolvement => setInvolvement(showInvolvement)}
+                s = { showInvolvement }
+            />
+
             <Projects 
                 changeShow={show => setButtons(show)}
                 changeTimer={timer => setTimer(timer)}

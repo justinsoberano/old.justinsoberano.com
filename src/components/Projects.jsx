@@ -9,7 +9,7 @@ export const Projects = props => {
     function CardSpring() {
         return useSpring({
             from: !toggle ? { opacity: 1, transform: "translateY(200px)" } : { opacity: 0, transform: "translateY(0px)" },
-            to: !toggle ? { opacity: 1, transform: "translateY(0px)" } : { opacity: 0, transform: "translateY(200px)" },
+            to: !toggle ? { opacity: 1, transform: "translateY(0px)" } : { opacity: 0, transform: "translateY(300px)" },
             delay: 0,
             config: { mass: 1, tension: 200, friction: 50 }
         })
@@ -18,6 +18,24 @@ export const Projects = props => {
     return (
         <>
             <a.div className="noselect project-container" style={{...CardSpring()}} key={toggle}>
+
+                <div className="card-design-projects">
+                    <img className="portfolio-image" src={require('../images/project_images/spinder-project.gif')} alt="image" />
+                    <img className="portfolio-techstack" src={require('../images/project_images/spinder-techstack.png')} />
+                    <p className="project-title">
+                        Spinder App
+                    </p>
+                    <p className="project-description">
+                        In a team of four, we created a music discovery app 
+                        based on your top songs on Spotify. You were recommended 
+                        new songs to listen to and save to your library by swiping 
+                        left or right.  { }
+                        <a href="https://github.com/justinsoberano/Spinder"
+                            target="_blank"
+                            style={{ color: "lightblue", fontWeight: "800" }}>
+                            Source code here </a>
+                    </p>
+                </div>
 
                 <div className="card-design-projects">
                     <img className="portfolio-image" src={require('../images/project_images/website-project.gif')} alt="image" />
@@ -81,7 +99,7 @@ export const Projects = props => {
                     </p>
                 </div>
                 
-                <div className="project-back-button" style={{ ...CardSpring() }} onClick={() => {
+                <div className="project-back-button" onClick={() => {
                     props.changeShow(true);
                     props.changeTimer(100)
                     props.changeShowProjects(true)
