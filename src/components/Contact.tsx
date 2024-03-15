@@ -2,9 +2,12 @@ import React from 'react';
 import { useSpring, a } from '@react-spring/web';
 import './styles/button_stylesheet.css';
 import './styles/contact_stylesheet.css';
-import PDF from "../resume/resume.pdf"
 
-export const Contact = props => {
+export const Contact = (props: { 
+    s: any; 
+    changeShow: (arg0: boolean) => void; 
+    changeTimer: (arg0: number) => void; 
+    changeShowContact: (arg0: boolean) => void; }) => {
 
     let toggle = props.s
 
@@ -17,7 +20,7 @@ export const Contact = props => {
         })
     }
 
-    function openInNewTab(url) {
+    function openInNewTab(url: string) {
         window.open(url, '_blank');
     }
 
@@ -39,7 +42,7 @@ export const Contact = props => {
                 </a.div>
 
                 <a.div className="button-design noselect light-purple" 
-                    onClick={() => openInNewTab(PDF)}
+                    onClick={() => openInNewTab(require('../resume/resume.pdf'))}
                     style={{ ...ContactSpring() }}>
                     <span className="button-text">resume</span>
                 </a.div>

@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es5", // or a later version like "es6"
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "typeRoots": ["./node_modules/@types", "./types"],
+    "jsx": "react-jsx" // important for React 17+ JSX transform
+  },
+  "include": ["src"]
+}

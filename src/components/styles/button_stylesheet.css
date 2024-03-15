@@ -158,8 +158,6 @@
     user-select: none;
 }
 
-/* TODO: import fonts */
-
 @font-face {
     font-family: "Minecraft";
     src: url("../../fonts/minecraft/minecraftregular-bmg3-webfont.woff") format("woff");

@@ -12,7 +12,7 @@ import "./styles/card_stylesheet.css"
 
 export const Buttons = () => {
     
-    function ButtonSprings(delay) {
+    function ButtonSprings(delay: number) {
         return useSpring({
             from: showButtons ? { opacity: 0, transform: "translateY(100px)" } : { opacity: 1, transform: "translateY(0px)" },
             to: showButtons ? { opacity: 1, transform: "translateY(0px)" } : { opacity: 0, transform: "translateY(100px)"},

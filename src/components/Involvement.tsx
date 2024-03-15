@@ -2,7 +2,11 @@ import React from "react";
 import "./styles/involvement_stylesheet.css";
 import { useSpring, a } from "@react-spring/web";
 
-export const Involvement = props => {
+export const Involvement = (props: { 
+    s: any; 
+    changeShow: (arg0: boolean) => void; 
+    changeTimer: (arg0: number) => void; 
+    changeShowInvolvement: (arg0: boolean) => void; }) => {
 
     let toggle = props.s
 
@@ -77,7 +81,7 @@ export const Involvement = props => {
                     </p>
                 </div>
 
-                <div className="project-back-button" style={{ ...CardSpring() }} onClick={() => {
+                <div className="project-back-button" onClick={() => {
                     props.changeShow(true);
                     props.changeTimer(100)
                     props.changeShowInvolvement(true)

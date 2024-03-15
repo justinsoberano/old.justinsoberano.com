@@ -1,7 +1,7 @@
 import React, { Suspense, useEffect, useState } from "react";
 import * as THREE from "three";
 import { Canvas, extend, useThree, useFrame, Node } from "@react-three/fiber";
-import { Effects, Sphere, Stars, Plane, Fisheye, Hud, Cloud } from "@react-three/drei";
+import { Effects, Stars} from "@react-three/drei";
 import { LetterI, LetterJ, LetterU, 
          LetterS, LetterT, LetterN } from "../../meshes/name/FirstName";
 import { LastLetterO1, LastLetterS, LastLetterA, 
@@ -10,9 +10,9 @@ import { LastLetterO1, LastLetterS, LastLetterA,
 import { FilmPass } from "three/examples/jsm/postprocessing/FilmPass.js";
 import { GlitchPass } from "three/examples/jsm/postprocessing/GlitchPass.js";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
-import {LoadingScreen} from "../LoadingScreen.tsx"
+import {LoadingScreen} from "../LoadingScreen"
 import { Buttons } from "../Buttons";
-import { Planets } from "../../meshes/geometries/shapes.tsx";
+import { Planets } from "../../meshes/geometries/shapes";
 import "../styles/canvas_stylesheet.css";
 
 extend({ FilmPass, GlitchPass, UnrealBloomPass })

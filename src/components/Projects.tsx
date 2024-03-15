@@ -2,22 +2,26 @@ import React from "react";
 import "./styles/project_stylesheet.css";
 import { useSpring, a } from "@react-spring/web";
 
-export const Projects = props => {
+export const Projects = (props: { 
+    s: boolean; 
+    changeShow: (arg0: boolean) => void; 
+    changeTimer: (arg0: number) => void; 
+    changeShowProjects: (arg0: boolean) => void; }) => {
 
-    let toggle = props.s
+    let toggle: boolean = props.s;
 
-    function CardSpring() {
+    function CardSpring(): any {
         return useSpring({
             from: !toggle ? { opacity: 1, transform: "translateY(200px)" } : { opacity: 0, transform: "translateY(0px)" },
             to: !toggle ? { opacity: 1, transform: "translateY(0px)" } : { opacity: 0, transform: "translateY(300px)" },
             delay: 0,
             config: { mass: 1, tension: 200, friction: 50 }
-        })
+        });
     }
 
     return (
         <>
-            <a.div className="noselect project-container" style={{...CardSpring()}} key={toggle}>
+            <a.div className="noselect project-container" style={{...CardSpring()}} key={Math.random()}>
 
                 <div className="card-design-projects">
                     <img className="portfolio-image" src={require('../images/project_images/spinder-project.gif')} alt="image" />
