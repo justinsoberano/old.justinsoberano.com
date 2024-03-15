@@ -8,4 +8,4 @@ Created with:
  - react-spring
  - ❤️
 
-### Still a work in progress!
+### Any feedback is appreciated :)
