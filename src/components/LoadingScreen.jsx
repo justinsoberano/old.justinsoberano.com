@@ -12,15 +12,17 @@ export const LoadingScreen = ({started, onStarted}) => {
                 <p className={"ready-text"} onClick={onStarted}> {'>'} INSERT COIN {'<'}</p>
                 <p style={{
                     position: "absolute",
-                    top: "70%",
-                    color: "yellow",
+                    top: "95%",
+                    left: "1%",
                     fontSize: "15px",
+                    color: "white",
                     fontFamily: "Minecraft",
                     fontStyle: "normal",
                     letterSpacing: "2px",
-                    fontWeight: "bold",
-
-                }}> !! Work in progress !! </p>
+                }}>
+                <a href="https://github.com/justinsoberano/justinsoberano.com"
+                target="_blank" style={{color: "white", cursor: "pointer"}}>
+                v2.4 </a> </p>
             </div>
         </>
     );

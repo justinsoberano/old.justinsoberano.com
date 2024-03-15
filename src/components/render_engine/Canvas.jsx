@@ -46,6 +46,10 @@ export default function Background() {
         audio.pause();
     }
 
+    const startAudio = () => {
+        audio.play();
+    }
+
     useEffect(() => {
         if(start) {
             audio.play();
@@ -71,7 +75,9 @@ export default function Background() {
             </Canvas>
             {start && <Buttons />}
             {start && showSound && <p className={'soundtext'}
-            onClick={() => {pauseAudio(); setShowSound(false)}}> TURN SOUND OFF </p>}
+            onClick={() => {pauseAudio(); setShowSound(false)}}> PAUSE MUSIC </p>}
+            {start && !showSound && <p className={'soundtext'}
+            onClick={() => {startAudio(); setShowSound(true)}}> UNPAUSE MUSIC </p>}
             <LoadingScreen started={start} onStarted={() => setStart(true)} />
         </>
     );  
