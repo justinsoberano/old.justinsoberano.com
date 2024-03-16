@@ -8,4 +8,12 @@ Created with:
  - react-spring
  - ❤️
 
-### Any feedback is appreciated :)
+#### Any feedback is appreciated :)
+
+#### Wanna run this locally?
+```bash
+git clone https://github.com/justinsoberano/justinsoberano.com.git
+npm install
+npm start
+```
+
