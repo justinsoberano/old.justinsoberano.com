@@ -1,4 +1,4 @@
-.contact-flex-container {
+.flex-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -34,13 +34,6 @@
     padding: 12px;
 }
 
-.contact-button-text {
-    color: white;
-    font-family: Minecraft;
-    font-weight: bold;
-    font-size: 20px;
-}
-
 .linkedin-blue {
     border: 5px solid rgb(0, 119, 181);
 }
@@ -74,16 +67,22 @@
 .linkedin-blue:hover {
     border: 8px solid rgb(0, 119, 181);
     padding: 12px;
+    font-weight: bold;
+    font-style: italic;
 }
 
 .github-gray:hover {
     border: 8px solid rgb(114, 114, 133);
     padding: 12px;
+    font-weight: bold;
+    font-style: italic;
 }
 
 .light-purple:hover {
     border: 8px solid rgb(142, 104, 142);
     padding: 12px;
+    font-weight: bold;
+    font-style: italic;
 }
 
 .rainbow:hover {
@@ -103,6 +102,8 @@
     background-origin: border-box;
     background-clip: padding-box, border-box;
     padding: 12px;
+    font-weight: bold;
+    font-style: italic;
 }
 
 .linkedin-blue:active {

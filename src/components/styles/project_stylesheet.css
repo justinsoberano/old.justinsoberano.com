@@ -1,17 +1,3 @@
-::-webkit-scrollbar {
-    height: 12px;
-    background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-    background: lightgray;
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-track-piece {
-    display: none;
-}
-
 .project-container {
     overflow: auto;
     white-space: nowrap;

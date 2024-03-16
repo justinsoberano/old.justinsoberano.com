@@ -1,19 +1,27 @@
+// React and related hooks
 import React, { Suspense, useEffect, useState } from "react";
+
+// three.js and @react-three/fiber
 import * as THREE from "three";
 import { Canvas, extend, useThree, useFrame, Node } from "@react-three/fiber";
-import { Effects, Stars} from "@react-three/drei";
-import { LetterI, LetterJ, LetterU, 
-         LetterS, LetterT, LetterN } from "../../meshes/name/FirstName";
-import { LastLetterO1, LastLetterS, LastLetterA, 
-         LastLetterB, LastLetterE, LastLetterN, 
-         LastLetterO2, LastLetterR } from "../../meshes/name/LastName";
+import { Effects, Stars } from "@react-three/drei";
+
+// Post-processing effects from three.js
 import { FilmPass } from "three/examples/jsm/postprocessing/FilmPass.js";
 import { GlitchPass } from "three/examples/jsm/postprocessing/GlitchPass.js";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
-import {LoadingScreen} from "../LoadingScreen"
+
+// Local components and utilities
+import { LoadingScreen } from "../LoadingScreen";
 import { Buttons } from "../Buttons";
-import { Planets } from "../../meshes/geometries/shapes";
+import { Planets } from "../../meshes/geometries/BackgroundPlanets";
+import { LetterI, LetterJ, LetterU, LetterS, LetterT, LetterN } from "../../meshes/name/FirstName";
+import { LastLetterO1, LastLetterS, LastLetterA, LastLetterB, LastLetterE, LastLetterN, LastLetterO2, LastLetterR } from "../../meshes/name/LastName";
+
+// Styles
 import "../styles/canvas_stylesheet.css";
+import "../styles/global_stylesheet.css";
+
 
 extend({ FilmPass, GlitchPass, UnrealBloomPass })
 
@@ -47,7 +55,6 @@ const CameraAnimation: React.FC = () => {
                 state.camera.position.lerp(vec.set(0, -3, 5), .025);
         }
     });
-
     return null;
 }
 
@@ -75,7 +82,7 @@ const Background: React.FC = () =>{
     return (
         <>
             <Canvas dpr={1}>
-                <Stars radius={0.1} depth={30} count={2000} factor={0.7} saturation={2} fade speed={4} />
+                <Stars radius={0.1} depth={30} count={2000} factor={0.7} saturation={2} fade speed={2} />
                 <Suspense fallback={null}> {start && 
                     <>
                         <color attach={"background"} args={["rgb(0, 0, 0)"]} />
@@ -131,7 +138,7 @@ const Lighting: React.FC = () => {
     return (
         <group>
             <ambientLight intensity={0} />
-            <pointLight position={[0, 0, 0]} intensity={1} distance={20} />
+            <pointLight position={[0, 0, 0]} intensity={1} distance={15} />
         </group>
     )
 }

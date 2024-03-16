@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSpring, animated as a } from '@react-spring/web';
 import './styles/card_stylesheet.css';
+import './styles/global_stylesheet.css';
 
 interface ExperienceData {
     id: number;
@@ -62,7 +63,7 @@ export const Experience = ({s, changeShow, changeTimer, changeShowExperience}: {
                     changeTimer(100);
                     changeShowExperience(true);
                 }}>
-                    <p> BACK </p>
+                    <p> back </p>
                 </div>
             </a.div>
         </>

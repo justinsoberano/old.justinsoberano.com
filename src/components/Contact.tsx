@@ -1,7 +1,7 @@
-import React from 'react';
 import { useSpring, a } from '@react-spring/web';
 import './styles/button_stylesheet.css';
 import './styles/contact_stylesheet.css';
+import "./styles/global_stylesheet.css"
 
 export const Contact = (props: { 
     s: any; 
@@ -27,7 +27,7 @@ export const Contact = (props: {
     return (
         <div>
 
-            <a.div className="contact-flex-container" style={{ ...ContactSpring() }}>
+            <a.div className="flex-container" style={{ ...ContactSpring() }}>
 
                 <a.div className="button-design noselect linkedin-blue"
                     onClick={() => openInNewTab("https://www.linkedin.com/in/justinsoberano/")}
@@ -61,7 +61,7 @@ export const Contact = (props: {
                         props.changeShowContact(true)
                     }}
                     style={{ ...ContactSpring() }}>
-                    <span className="contact-button-text">back</span>
+                    <span className="button-text">back</span>
                 </a.div>
 
             </a.div>

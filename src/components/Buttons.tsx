@@ -1,17 +1,14 @@
-import React, { useState } from "react";
-import {useSpring , a} from "@react-spring/web";
+import { useState } from "react";
+import { useSpring , a } from "@react-spring/web";
 import { Experience } from "./Experience";
 import { Contact } from "./Contact";
 import { Involvement } from "./Involvement";
 import { Projects } from "./Projects";
 import "./styles/button_stylesheet.css";
 import "./styles/card_stylesheet.css"
-
-/* Try to use maps to create the buttons */
-/* Use 'useTrail' to animate the buttons */
+import "./styles/global_stylesheet.css"
 
 export const Buttons = () => {
-    
     function ButtonSprings(delay: number) {
         return useSpring({
             from: showButtons ? { opacity: 0, transform: "translateY(100px)" } : { opacity: 1, transform: "translateY(0px)" },
@@ -21,7 +18,7 @@ export const Buttons = () => {
         })
     }
 
-    const [timer, setTimer] = useState(1900)
+    const [timer, setTimer] = useState(2000)
     const [showButtons, setButtons] = useState(true);
     const [showExperience, setExperience] = useState(true)
     const [showProjects, setProjects] = useState(true)

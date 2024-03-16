@@ -1,6 +1,7 @@
 import React from "react";
-import "./styles/project_stylesheet.css";
 import { useSpring, a } from "@react-spring/web";
+import "./styles/project_stylesheet.css";
+import "./styles/global_stylesheet.css"
 
 interface ProjectData {
     id: number;
@@ -65,7 +66,7 @@ export const Projects = ({s, changeShow, changeTimer, changeShowProjects}: {
             changeTimer(100);
             changeShowProjects(true);
           }}>
-          <p> BACK </p>
+          <p> back </p>
         </div>
       </a.div>
     </>

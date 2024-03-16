@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Box, Sphere, Torus, useGLTF } from "@react-three/drei";
+import { Box, Cloud, Sphere, Torus, useGLTF } from "@react-three/drei";
 import { useSpring, animated, Spring } from "@react-spring/three";
 import { useThree, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
@@ -55,7 +55,7 @@ export function Planets() {
     return (
         <group>
             <animated.pointLight position={[0, 10, -40]} intensity={pointLightSpringAnimation.intensity} distance={200}/>
-            
+
             <Sphere args={[1, 10, 6]} position={[15, -10, -30]} scale={10}>
                 <meshStandardMaterial attach="material" color={"yellow"}/>
             </ Sphere>
@@ -66,6 +66,14 @@ export function Planets() {
 
             <Sphere args={[1, 12, 8]} position={[-10, -20, -20]} scale={10}>
                 <meshStandardMaterial attach="material" color={"hotpink"}/>
+            </ Sphere>
+
+            <Sphere args={[1, 12, 8]} position={[-16, 5, -14]} scale={2}>
+                <meshStandardMaterial attach="material" color={"green"}/>
+            </ Sphere>
+
+            <Sphere args={[1, 12, 8]} position={[-15, 5.5, -12]} scale={1}>
+                <meshStandardMaterial attach="material" color={"white"}/>
             </ Sphere>
 
             <Sphere args={[1, 10, 6]} position={[15, -10, -30]} scale={10} ref={

@@ -27,26 +27,6 @@
     align-items: center;
 }
 
-.unimplemented-button {
-    margin: 10px;
-    background: black;
-    padding: 15px;
-    border-radius: 15px;
-    text-align: center;
-    cursor: not-allowed;
-    width: 150px;
-    align-items: center;
-    border: 5px solid gray;
-    color: darkgray;
-}
-
-.unimplemented-button-text {
-    color: darkgray;
-    font-family: Minecraft;
-    font-weight: bold;
-    font-size: 20px;
-}
-
 .white {
     border: 5px solid white;
 }
@@ -145,40 +125,6 @@
 .yellow:active {
     border: 8px solid rgb(178, 178, 28);
     padding: 12px;
-    font-weight: bold;
-    font-style: italic;
-}
-
-.noselect {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-@font-face {
-    font-family: "Minecraft";
-    src: url("../../fonts/minecraft/minecraftregular-bmg3-webfont.woff") format("woff");
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "Minecraft";
-    src: url("../../fonts/minecraft/minecraftitalic-r8mo-webfont.woff") format("woff");
-    font-style: italic;
-}
-
-@font-face {
-    font-family: "Minecraft";
-    src: url("../../fonts/minecraft/minecraftbold-nmk1-webfont.woff") format("woff");
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: "Minecraft";
-    src: url("../../fonts/minecraft/minecraftbolditalic-1y1e-webfont.woff") format("woff");
     font-weight: bold;
     font-style: italic;
 }
