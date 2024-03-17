@@ -27,27 +27,27 @@ export const Buttons = () => {
 
     return(
         <div>
-            <a.div className="flex-container" style={{ ...ButtonSprings(timer)}}>
+            <a.div className="noselect button-container" style={{ ...ButtonSprings(timer)}}>
 
-                <a.div className="button-design noselect yellow" 
+                <a.div className="button-design yellow" 
                        onClick={() => {setButtons(!showButtons); setExperience(!showExperience);} } 
                        style={{...ButtonSprings(timer + 50)}}>
                     <span className="button-text">experiences</span>
                 </a.div>
                 
-                <a.div className="button-design noselect aqua"
+                <a.div className="button-design aqua"
                        onClick={() => { setButtons(!showButtons); setProjects(!showProjects); }} 
                        style={{ ...ButtonSprings(timer + 100) }}>
                     <span className="button-text">projects</span>
                 </a.div>
 
-                <a.div className="button-design noselect purple"
+                <a.div className="button-design purple"
                        onClick={() => { setButtons(!showButtons); setInvolvement(!showInvolvement); }}    
                        style={{ ...ButtonSprings(timer + 150) }}>
                     <span className="button-text">involvement</span>
                 </a.div>
 
-                <a.div className="button-design noselect pink"
+                <a.div className="button-design pink"
                        onClick={() => { setButtons(!showButtons); setContact(!showContact); }}  
                        style={{ ...ButtonSprings(timer + 200) }}>
                     <span className="button-text">contact</span>
@@ -61,11 +61,11 @@ export const Buttons = () => {
                 s = { showExperience }
             />
 
-            <Contact
-                changeShow = {show => setButtons(show)}
-                changeTimer = {timer => setTimer(timer)}
-                changeShowContact = {showContact => setContact(showContact)}
-                s = { showContact }
+            <Projects 
+                changeShow={show => setButtons(show)}
+                changeTimer={timer => setTimer(timer)}
+                changeShowProjects={showProjects => setProjects(showProjects)}
+                s = { showProjects } 
             />
 
             <Involvement
@@ -75,13 +75,12 @@ export const Buttons = () => {
                 s = { showInvolvement }
             />
 
-            <Projects 
-                changeShow={show => setButtons(show)}
-                changeTimer={timer => setTimer(timer)}
-                changeShowProjects={showProjects => setProjects(showProjects)}
-                s = { showProjects } 
+            <Contact
+                changeShow = {show => setButtons(show)}
+                changeTimer = {timer => setTimer(timer)}
+                changeShowContact = {showContact => setContact(showContact)}
+                s = { showContact }
             />
-
 
         </div>
 

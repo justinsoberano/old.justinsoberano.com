@@ -11,17 +11,6 @@ export default function App() {
     if (isFirefox) {
       alert("This website is not optimized for Firefox. Currently working on a fix :)")
     }
-    
-    /* Checks for Safari on iPad */
-    const userAgent = navigator.userAgent;
-    const platform = navigator.platform;
-    const isSafari = /^((?!chrome|android).)*safari/i.test(userAgent);
-    const isiPad = /iPad|Macintosh/.test(platform) && navigator.maxTouchPoints > 1;
-
-    if (isSafari && isiPad) {
-      alert("This website is not optimized for Safari on iPad. Currently working on a fix :)")
-    }
-
   }, []);
 
   return (

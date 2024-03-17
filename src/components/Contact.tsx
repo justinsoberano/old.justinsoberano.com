@@ -25,29 +25,28 @@ export const Contact = (props: {
     }
 
     return (
-        <div>
+        <>
+            <a.div className="noselect button-container" style={{ ...ContactSpring() }}>
 
-            <a.div className="flex-container" style={{ ...ContactSpring() }}>
-
-                <a.div className="button-design noselect linkedin-blue"
+                <a.div className="button-design linkedin-blue"
                     onClick={() => openInNewTab("https://www.linkedin.com/in/justinsoberano/")}
                     style={{ ...ContactSpring() }}>
                     <span className="button-text">linkedin</span>
                 </a.div>
 
-                <a.div className="button-design noselect github-gray"
+                <a.div className="button-design github-gray"
                     onClick={() => openInNewTab("https://github.com/justinsoberano")}
                     style={{ ...ContactSpring() }}>
                     <span className="button-text">github</span>
                 </a.div>
 
-                <a.div className="button-design noselect light-purple" 
+                <a.div className="button-design light-purple" 
                     onClick={() => openInNewTab("https://docs.google.com/viewer?url=https://github.com/justinsoberano/portfolio-data/raw/main/resume/resume.pdf")}
                     style={{ ...ContactSpring() }}>
                     <span className="button-text">resume</span>
                 </a.div>
 
-                <a.div className="button-design noselect rainbow"
+                <a.div className="button-design rainbow"
                     onClick={() => openInNewTab("mailto:me@justinsoberano.com")}
                     style={{ ...ContactSpring() }}>
 
@@ -65,6 +64,6 @@ export const Contact = (props: {
                 </a.div>
 
             </a.div>
-        </div>
+        </>
     )
 }

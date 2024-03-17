@@ -43,9 +43,7 @@ export const Experience = ({s, changeShow, changeTimer, changeShowExperience}: {
 
     const cards = experienceData.map((exp) => (
         <div className="card-design" key={exp.id}>
-            <div className={exp.cssImageClass}>
-                <img className="background-image" style={{ opacity: "0" }} src="https://picsum.photos/325/150" alt="Background" />
-            </div>
+            <div className={exp.cssImageClass}></div>
             <img className="tech-stack" src={exp.techStackImage} alt="Tech Stack" />
             <img className="employer" src={exp.employerImage} alt="Employer" />
             <p className="job-dates">{exp.dates}</p>
@@ -56,7 +54,7 @@ export const Experience = ({s, changeShow, changeTimer, changeShowExperience}: {
     
     return (
         <>
-            <a.div className="container noselect" style={styles} key={s}>
+            <a.div className="noselect experience-container" style={styles} key={s}>
                 {cards}
                 <div className="card-back-button" onClick={() => {
                     changeShow(true);
