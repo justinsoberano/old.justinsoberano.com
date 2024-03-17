@@ -24,7 +24,7 @@ export const LoadingScreen: React.FC<{
                 }}>
                 <a href="https://github.com/justinsoberano/justinsoberano.com"
                 target="_blank" style={{color: "white", cursor: "pointer"}}>
-                v2.4 </a> </p>
+                v2.4.1 </a> </p>
             </div>
         </>
     );

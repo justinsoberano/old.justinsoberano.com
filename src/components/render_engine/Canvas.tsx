@@ -58,7 +58,7 @@ const CameraAnimation: React.FC = () => {
     return null;
 }
 
-const audio = new Audio("/assets/audio/terraria_space.mp3");
+const audio = new Audio("https://github.com/justinsoberano/portfolio-data/raw/main/audio/terraria_space.mp3");
 audio.loop = true;
 
 const Background: React.FC = () =>{

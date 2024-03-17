@@ -41,7 +41,7 @@ export const Buttons = () => {
                     <span className="button-text">projects</span>
                 </a.div>
 
-                <a.div className="button-design noselect coral"
+                <a.div className="button-design noselect purple"
                        onClick={() => { setButtons(!showButtons); setInvolvement(!showInvolvement); }}    
                        style={{ ...ButtonSprings(timer + 150) }}>
                     <span className="button-text">involvement</span>

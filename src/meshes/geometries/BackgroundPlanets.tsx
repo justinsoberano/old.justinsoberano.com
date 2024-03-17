@@ -68,13 +68,13 @@ export function Planets() {
                 <meshStandardMaterial attach="material" color={"hotpink"}/>
             </ Sphere>
 
-            <Sphere args={[1, 12, 8]} position={[-16, 5, -14]} scale={2}>
+            {/* <Sphere args={[1, 12, 8]} position={[-16, 5, -14]} scale={2}>
                 <meshStandardMaterial attach="material" color={"green"}/>
             </ Sphere>
 
             <Sphere args={[1, 12, 8]} position={[-15, 5.5, -12]} scale={1}>
                 <meshStandardMaterial attach="material" color={"white"}/>
-            </ Sphere>
+            </ Sphere> */}
 
             <Sphere args={[1, 10, 6]} position={[15, -10, -30]} scale={10} ref={
                 sphereRef as React.MutableRefObject<THREE.Mesh<BufferGeometry<THREE.NormalBufferAttributes>, 
