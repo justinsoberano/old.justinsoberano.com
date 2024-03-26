@@ -22,8 +22,11 @@ import { LastLetterO1, LastLetterS, LastLetterA, LastLetterB, LastLetterE, LastL
 import "../styles/canvas_stylesheet.css";
 import "../styles/global_stylesheet.css";
 
-
 extend({ FilmPass, GlitchPass, UnrealBloomPass })
+
+const intro = new Audio("assets/audio/intro.mp3");
+const main = new Audio("assets/audio/main.mp3");
+main.loop = true;
 
 declare global {
     namespace JSX {
@@ -41,7 +44,8 @@ declare global {
 }
 
 const CameraAnimation: React.FC = () => {
-    const [started, setStarted] = useState(false)
+    const [started, setStarted] = useState(false);
+    const [musicStarted, setMusicStarted] = useState(false);
     const vec = new THREE.Vector3();
     const { viewport } = useThree();
     useEffect(() => {
@@ -49,17 +53,18 @@ const CameraAnimation: React.FC = () => {
     });
     useFrame(state => {
         if (started) {
-            if(viewport.aspect > 0.7) 
+            if(!musicStarted) {
+                main.play();
+                setMusicStarted(true);
+            }
+            if(viewport.aspect > 1) 
                 state.camera.position.lerp(vec.set(0, -3, 7), .025);
-            else if (viewport.aspect <= 0.7) 
+            else if (viewport.aspect <= 1) 
                 state.camera.position.lerp(vec.set(0, -3, 5), .025);
         }
     });
     return null;
 }
-
-const audio = new Audio("https://github.com/justinsoberano/portfolio-data/raw/main/audio/terraria_space.mp3");
-audio.loop = true;
 
 const Background: React.FC = () =>{
 
@@ -67,15 +72,15 @@ const Background: React.FC = () =>{
     const [showSound, setShowSound] = useState(true)
 
     const pauseAudio = () => {
-        audio.pause();
+        main.pause();
     }
     const startAudio = () => {
-        audio.play();
+        main.play();
     }
 
     useEffect(() => {
         if(start) {
-            audio.play();
+            intro.play();
         }
     }, [start]);
 

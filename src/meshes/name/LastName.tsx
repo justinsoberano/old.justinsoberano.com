@@ -21,7 +21,7 @@ const PositionSpring = (
     
     const {viewport} = useThree();
     const desktopY = 0.475 - viewport.aspect * 0.75;
-    const isWide = viewport.aspect >= 0.7;
+    const isWide = viewport.aspect >= 1;
 
     return useSpring({
         to: isWide ? 
@@ -37,7 +37,7 @@ const ScaleSpring = () : SpringValues<{ scale: [number, number, number]}> => {
     const mobileScale = 0.5;
     const desktopScale = (viewport.aspect >= 1.15) ? 1.2 : 0.8 - (viewport.aspect * 0.2);
 
-    const isWide = viewport.aspect >= 0.7;
+    const isWide = viewport.aspect >= 1;
     return useSpring({
         from: { scale: [0, 0, 0] as [number, number, number]},
         to: isWide ? 

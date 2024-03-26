@@ -6,9 +6,6 @@ import * as THREE from "three";
 import { randFloat, randInt } from "three/src/math/MathUtils";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 
-/* Turn the functions to ternary notations for cleaner code */
-/* possibly create the useSpring functions in a separate helper file */
-
 const PositionSpring = (
     pX: number, 
     pY: number, 
@@ -18,7 +15,7 @@ const PositionSpring = (
     ): SpringValues<{ position: [number, number, number]}> => {
 
     const { viewport } = useThree();
-    const isWide = viewport.aspect >= 0.7;
+    const isWide = viewport.aspect >= 1;
 
     return useSpring({
         from: { position: [0, 0, 7] as [number, number, number] },
@@ -28,7 +25,7 @@ const PositionSpring = (
         delay: delay,
         config: {
             mass: 4, 
-            tension: isWide ? 200 : 250, 
+            tension: isWide ? 200 : 100, 
             friction: isWide ? 70 : 40 
         }
     });
@@ -62,7 +59,7 @@ const ScaleSpring = (
     const { viewport } = useThree();
     const desktopScale = viewport.aspect;
     const mobileScale = 1.1;
-    const isWide = viewport.aspect >= 0.7;
+    const isWide = viewport.aspect >= 1;
 
     return useSpring({
         from: { scale: [0, 1, 0] as [number, number, number]},
