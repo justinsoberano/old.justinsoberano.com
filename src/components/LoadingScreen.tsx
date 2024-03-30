@@ -10,7 +10,7 @@ export const LoadingScreen: React.FC<{
                 position: "absolute",
                 top: "0%",
             }}>
-                <p className={"top-text"}>Ready Player One?</p>
+                <p className={"top-text"}> Ready Player One? </p>
                 <p className={"ready-text"} onClick={onStarted}> {'>'} INSERT COIN {'<'}</p>
                 <p style={{
                     position: "absolute",
@@ -24,7 +24,9 @@ export const LoadingScreen: React.FC<{
                 }}>
                 <a href="https://github.com/justinsoberano/justinsoberano.com"
                 target="_blank" style={{color: "white", cursor: "pointer"}}>
-                v2.4.2 </a> </p>
+                v2.4.2 </a> 
+                
+                </p>
             </div>
         </>
     );

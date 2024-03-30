@@ -11,20 +11,26 @@ import { useThree } from "@react-three/fiber";
 
 export const Buttons = () => {
     function ButtonSprings(delay: number) {
-        return useSpring({
-            from: showButtons ? { opacity: 0, transform: "translateY(100px)" } : { opacity: 1, transform: "translateY(0px)" },
-            to: showButtons ? { opacity: 1, transform: "translateY(0px)" } : { opacity: 0, transform: "translateY(100px)"},
-            delay: showButtons ? delay: 0,
-            config: showButtons ? { mass: 4, tension: 200, friction: 40 } : {mass: 1, tension: 200, friction: 40}
-        })
-    }
+			return useSpring({
+				from: showButtons
+					? { opacity: 0, transform: "translateY(100px)" }
+					: { opacity: 1, transform: "translateY(0px)" },
+				to: showButtons
+					? { opacity: 1, transform: "translateY(0px)" }
+					: { opacity: 0, transform: "translateY(100px)" },
+				delay: showButtons ? delay : 0,
+				config: showButtons
+					? { mass: 4, tension: 200, friction: 40 }
+					: { mass: 1, tension: 200, friction: 40 },
+			});
+		}
 
-    const [timer, setTimer] = useState(2300)
+    const [timer, setTimer] = useState(2300);
     const [showButtons, setButtons] = useState(true);
-    const [showExperience, setExperience] = useState(true)
-    const [showProjects, setProjects] = useState(true)
-    const [showInvolvement, setInvolvement] = useState(true)
-    const [showContact, setContact] = useState(true)
+    const [showExperience, setExperience] = useState(true);
+    const [showProjects, setProjects] = useState(true);
+    const [showInvolvement, setInvolvement] = useState(true);
+    const [showContact, setContact] = useState(true);
 
     return(
         <div>

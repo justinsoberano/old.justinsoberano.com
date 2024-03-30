@@ -4,15 +4,16 @@ import { useSpring, a } from "@react-spring/web";
 import "./styles/global_stylesheet.css"
 
 interface InvolvementData {
-    id: number;
-    image: string;
-    title: string;
-    description: string;
-    link: string;
-    linkText: string;
+	id: number;
+	image: string;
+	title: string;
+	description: string;
+	link: string;
+	linkText: string;
 }
 
 export const Involvement = ({s, changeShow, changeTimer, changeShowInvolvement}: { 
+
     s: any; 
     changeShow: (arg0: boolean) => void; 
     changeTimer: (arg0: number) => void; 
@@ -21,11 +22,15 @@ export const Involvement = ({s, changeShow, changeTimer, changeShowInvolvement}:
     const [involvementData, setInvolvementData] = useState<InvolvementData[]>([]);
 
     const styles = useSpring({
-        from: !s ? { opacity: 1, transform: "translateY(200px)" } : { opacity: 0, transform: "translateY(0px)" },
-        to: !s ? { opacity: 1, transform: "translateY(0px)" } : { opacity: 0, transform: "translateY(200px)" },
-        delay: 0,
-        config: { mass: 1, tension: 200, friction: 50 }
-    });
+			from: !s
+				? { opacity: 1, transform: "translateY(200px)" }
+				: { opacity: 0, transform: "translateY(0px)" },
+			to: !s
+				? { opacity: 1, transform: "translateY(0px)" }
+				: { opacity: 0, transform: "translateY(200px)" },
+			delay: 0,
+			config: { mass: 1, tension: 200, friction: 50 },
+		});
 
     useEffect(() => {
         fetch('https://raw.githubusercontent.com/justinsoberano/portfolio-data/main/card_data/involvement_data.json')

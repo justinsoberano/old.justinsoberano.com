@@ -5,7 +5,7 @@ import './styles/global_stylesheet.css';
 
 interface ExperienceData {
     id: number;
-    cssImageClass: string;
+    image: string;
     techStackImage: string;
     employerImage: string;
     dates: string;
@@ -43,9 +43,18 @@ export const Experience = ({s, changeShow, changeTimer, changeShowExperience}: {
 
     const cards = experienceData.map((exp) => (
         <div className="card-design" key={exp.id}>
-            <div className={exp.cssImageClass}></div>
-            <img className="tech-stack" src={exp.techStackImage} alt="Tech Stack" />
-            <img className="employer" src={exp.employerImage} alt="Employer" />
+            <div style={{
+                borderRadius: '10px 10px 0 0',
+                width: '325px',
+                height: '150px',
+                backgroundImage: `url('${exp.image}')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 75%, rgba(0,0,0,0.5) 85%, rgba(0,0,0,0) 100%)',
+                maskImage: 'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 75%, rgba(0,0,0,0.5) 85%, rgba(0,0,0,0) 100%)' }} />
+            <img className="tech-stack" src={exp.techStackImage} alt={"techstack"}/>
+            <img className="employer" src={exp.employerImage} alt={"employer"}/>
             <p className="job-dates">{exp.dates}</p>
             <p className="job-title">{exp.title}</p>
             <p className="job-description">{exp.description}</p>

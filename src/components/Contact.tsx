@@ -12,17 +12,21 @@ export const Contact = (props: {
     let toggle = props.s
 
     function ContactSpring(delay: number) {
-        return useSpring({
-            from: !toggle ? { opacity: 1, transform: "translateY(450px)" } : { opacity: 0, transform: "translateY(0px)" },
-            to: !toggle ? { opacity: 1, transform: "translateY(0px)" } : { opacity: 0, transform: "translateY(450px)" },
-            delay: delay,
-            config: { mass: 3.5, tension: 220, friction: 45 }
-        })
-    }
+			return useSpring({
+				from: !toggle
+					? { opacity: 1, transform: "translateY(450px)" }
+					: { opacity: 0, transform: "translateY(0px)" },
+				to: !toggle
+					? { opacity: 1, transform: "translateY(0px)" }
+					: { opacity: 0, transform: "translateY(450px)" },
+				delay: delay,
+				config: { mass: 3.5, tension: 220, friction: 45 },
+			});
+		}
 
     function openInNewTab(url: string) {
-        window.open(url, '_blank');
-    }
+			window.open(url, "_blank");
+	}
 
     return (
         <>

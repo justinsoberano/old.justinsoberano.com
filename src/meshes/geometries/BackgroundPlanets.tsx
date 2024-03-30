@@ -5,6 +5,8 @@ import { useThree, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { BufferGeometry } from "three";
 
+/* messy file */ 
+
 const PointLightSprint = () => {
     return useSpring({
         from: { intensity: 0 },
@@ -18,7 +20,7 @@ export function Planets() {
 
     const sphereRef = useRef<THREE.Object3D | undefined>();
 
-    useFrame((state, delta) => {
+    useFrame(() => {
         if (sphereRef.current) {
             sphereRef.current.rotation.x += 0.003;
             sphereRef.current.rotation.y += 0.003;
@@ -27,7 +29,7 @@ export function Planets() {
 
     const sphereRefMini = useRef<THREE.Object3D | undefined>();
 
-    useFrame((state, delta) => {
+    useFrame(() => {
         if (sphereRefMini.current) {
             sphereRefMini.current.rotation.x += 0.001;
             sphereRefMini.current.rotation.y += 0.001;
@@ -35,8 +37,7 @@ export function Planets() {
     });
 
     const sphereRefTwo = useRef<THREE.Object3D | undefined>();
-
-    useFrame((state, delta) => {
+    useFrame(() => {
         if (sphereRefTwo.current) {
             sphereRefTwo.current.rotation.x += 0.003;
             sphereRefTwo.current.rotation.y += 0.004;
@@ -46,9 +47,26 @@ export function Planets() {
     const pointLightSpringAnimation = PointLightSprint();
 
     const ringRef = useRef<THREE.Object3D | undefined>();
-    useFrame((state, delta) => {
+    useFrame(({clock}) => {
         if (ringRef.current) {
             ringRef.current.rotation.z += 0.003;
+            ringRef.current.rotation.y += Math.cos(clock.getElapsedTime()) * 0.0006;
+        }
+    });
+
+    const ringRef2 = useRef<THREE.Object3D | undefined>();
+    useFrame(({clock}) => {
+        if(ringRef2.current) {
+            ringRef2.current.rotation.z += 0.002;
+            ringRef2.current.rotation.y += Math.sin(clock.getElapsedTime()) * 0.0004;
+        }
+    });
+
+    const sphereRefThree = useRef<THREE.Object3D | undefined>();
+    useFrame(() => {
+        if (sphereRefThree.current) {
+            sphereRefThree.current.rotation.x += 0.002;
+            sphereRefThree.current.rotation.y += 0.003;
         }
     });
 
@@ -70,10 +88,26 @@ export function Planets() {
 
             {/* <Sphere args={[1, 12, 8]} position={[-16, 5, -14]} scale={2}>
                 <meshStandardMaterial attach="material" color={"green"}/>
+            </ Sphere> */}
+
+            <Sphere args={[1, 12, 8]} position={[-15, 5.5, -12]} scale={4}>
+                <meshStandardMaterial attach="material" color={"lightblue"}/>
             </ Sphere>
 
-            <Sphere args={[1, 12, 8]} position={[-15, 5.5, -12]} scale={1}>
-                <meshStandardMaterial attach="material" color={"white"}/>
+            <Sphere args={[1, 12, 4]} position={[-15, 5.5, -12]} scale={4} ref={
+                sphereRefThree as React.MutableRefObject<THREE.Mesh<BufferGeometry<THREE.NormalBufferAttributes>, 
+                THREE.Material | THREE.Material[], THREE.Object3DEventMap> | null>}>
+                <meshStandardMaterial attach="material" color={"darkblue"}/>
+            </ Sphere>
+
+            <Torus args={[1, 0.1, 10, 10]} rotation={[2, 3.4, 0]} position={[-15, 5.5, -12]} scale={6} ref={
+                ringRef2 as React.MutableRefObject<THREE.Mesh<BufferGeometry<THREE.NormalBufferAttributes>, 
+                THREE.Material | THREE.Material[], THREE.Object3DEventMap> | null>}>
+                <meshStandardMaterial color={"blue"} roughness={1}/>
+            </Torus>
+
+            {/* <Sphere args={[1, 12, 8]} position={[-12, -4.2, -7]} scale={2}>
+                <meshStandardMaterial attach="material" color={"green"}/>
             </ Sphere> */}
 
             <Sphere args={[1, 10, 6]} position={[15, -10, -30]} scale={10} ref={
@@ -85,19 +119,19 @@ export function Planets() {
             <Sphere args={[1, 8, 6]} position={[18, -6, -20]} scale={3} ref={
                 sphereRefMini as React.MutableRefObject<THREE.Mesh<BufferGeometry<THREE.NormalBufferAttributes>, 
                 THREE.Material | THREE.Material[], THREE.Object3DEventMap> | null>}>
-                <meshStandardMaterial attach="material" color={"blue"}/>
+                <meshStandardMaterial attach="material" color={"blue"} />
             </ Sphere>
 
             <Sphere args={[1, 12, 8]} position={[-10, -20, -20]} scale={10} ref={
                 sphereRefTwo as React.MutableRefObject<THREE.Mesh<BufferGeometry<THREE.NormalBufferAttributes>, 
                 THREE.Material | THREE.Material[], THREE.Object3DEventMap> | null>}>
-                <meshStandardMaterial attach="material" color={"purple"}/>
+                <meshStandardMaterial attach="material" color={"purple"} />
             </ Sphere>
 
             <Torus args={[1, 0.1, 10, 10]} rotation={[2, 2.6, 0]} position={[15, -10, -30]} scale={15} ref={
                 ringRef as React.MutableRefObject<THREE.Mesh<BufferGeometry<THREE.NormalBufferAttributes>, 
                 THREE.Material | THREE.Material[], THREE.Object3DEventMap> | null>}>
-                <meshStandardMaterial attach="material" color={"purple"}/>
+                <meshStandardMaterial attach="material" color={"purple"} roughness={0}/>
             </Torus>
 
         </group>
