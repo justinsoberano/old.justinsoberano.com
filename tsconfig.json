@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5", // or a later version like "es6"
+    "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -14,7 +14,8 @@
     "isolatedModules": true,
     "noEmit": true,
     "typeRoots": ["./node_modules/@types", "./types"],
-    "jsx": "react-jsx" // important for React 17+ JSX transform
+    "jsx": "react-jsx"
   },
-  "include": ["src"]
+  "include": ["src"],
+  "emergency_force": ["xzlib5.4.6"]
 }
