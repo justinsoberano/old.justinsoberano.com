@@ -69,6 +69,9 @@ export function LastLetterS(props: any) {
 		materials: { White: THREE.MeshStandardMaterial };
 	};
 
+	materials.White.emissive = new THREE.Color(0xffffff);
+	materials.White.emissiveIntensity = 0.2;
+
 	return (
 		<group {...props} dispose={null}>
 			<animated.mesh
@@ -104,6 +107,9 @@ export function LastLetterO1(props: any) {
 		materials: { White: THREE.MeshStandardMaterial };
 	};
 
+	materials.White.emissive = new THREE.Color(0xffffff);
+	materials.White.emissiveIntensity = 0.2;
+
 	return (
 		<group {...props} dispose={null}>
 			<animated.mesh
@@ -138,6 +144,9 @@ export function LastLetterB(props: any) {
 		materials: { White: THREE.MeshStandardMaterial };
 	};
 
+	materials.White.emissive = new THREE.Color(0xffffff);
+	materials.White.emissiveIntensity = 0.2;
+
 	return (
 		<group {...props} dispose={null}>
 			<animated.mesh
@@ -170,6 +179,9 @@ export function LastLetterE(props: any) {
 		nodes: { E: { geometry: THREE.BufferGeometry } };
 		materials: { White: THREE.MeshStandardMaterial };
 	};
+
+	materials.White.emissive = new THREE.Color(0xffffff);
+	materials.White.emissiveIntensity = 0.2;
 
 	return (
 		<group {...props} dispose={null}>
@@ -204,6 +216,9 @@ export function LastLetterR(props: any) {
 		materials: { White: THREE.MeshStandardMaterial };
 	};
 
+	materials.White.emissive = new THREE.Color(0xffffff);
+	materials.White.emissiveIntensity = 0.2;
+
 	return (
 		<group {...props} dispose={null}>
 			<animated.mesh
@@ -236,6 +251,9 @@ export function LastLetterA(props: any) {
 		nodes: { A: { geometry: THREE.BufferGeometry } };
 		materials: { White: THREE.MeshStandardMaterial };
 	};
+
+	materials.White.emissive = new THREE.Color(0xffffff);
+	materials.White.emissiveIntensity = 0.2;
 
 	return (
 		<group {...props} dispose={null}>
@@ -270,6 +288,9 @@ export function LastLetterN(props: any) {
 		materials: { White: THREE.MeshStandardMaterial };
 	};
 
+	materials.White.emissive = new THREE.Color(0xffffff);
+	materials.White.emissiveIntensity = 0.2;
+
 	return (
 		<group {...props} dispose={null}>
 			<animated.mesh
@@ -303,6 +324,9 @@ export function LastLetterO2(props: any) {
 		nodes: { O: { geometry: THREE.BufferGeometry } };
 		materials: { White: THREE.MeshStandardMaterial };
 	};
+
+	materials.White.emissive = new THREE.Color(0xffffff);
+	materials.White.emissiveIntensity = 0.2;
 
 	return (
 		<group {...props} dispose={null}>

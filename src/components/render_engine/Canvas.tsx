@@ -24,7 +24,6 @@ import "../styles/global_stylesheet.css";
 
 extend({ FilmPass, GlitchPass, UnrealBloomPass })
 
-const intro = new Audio("assets/audio/intro.mp3");
 const main = new Audio("assets/audio/main.mp3");
 main.loop = true;
 
@@ -54,7 +53,6 @@ const CameraAnimation: React.FC = () => {
     useFrame(state => {
         if (started) {
             if(!musicStarted) {
-                main.play();
                 setMusicStarted(true);
             }
             if(viewport.aspect > 1) 
@@ -80,7 +78,7 @@ const Background: React.FC = () =>{
 
     useEffect(() => {
         if(start) {
-            intro.play();
+            main.play();
         }
     }, [start]);
 
@@ -92,7 +90,6 @@ const Background: React.FC = () =>{
                     <>
                         <color attach={"background"} args={["rgb(0, 0, 0)"]} />
                         {/* <gridHelper args={[100, 100, 100]} rotation-x={Math.PI / 2} /> */}
-                        <Lighting />
                         <FirstName />
                         <LastName />
                         <Planets />
@@ -139,14 +136,6 @@ const LastName: React.FC = () => {
     )
 }
 
-const Lighting: React.FC = () => {
-    return (
-        <group>
-            <ambientLight intensity={0} />
-            <pointLight position={[0, 0, 0]} intensity={1} distance={15} />
-        </group>
-    )
-}
 const EffectsComposer: React.FC = () => {
     const {viewport} = useThree();
     let bloom = viewport.aspect >= 0.7 ? 0.5 : 0.8;

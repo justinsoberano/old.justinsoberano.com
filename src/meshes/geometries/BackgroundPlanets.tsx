@@ -5,9 +5,9 @@ import { useThree, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { BufferGeometry } from "three";
 
-/* messy file */ 
+/* messy file needs to be reformatted asappppppppppp */ 
 
-const PointLightSprint = () => {
+const PointLightSpring = () => {
     return useSpring({
         from: { intensity: 0 },
         to: { intensity: 1 },
@@ -16,7 +16,20 @@ const PointLightSprint = () => {
     })
 }
 
+const SecondPointLightSpring = () => {
+    const { viewport } = useThree();
+    const isWide = viewport.aspect >= 1;
+    return useSpring({
+        from: { intensity: 0 },
+        to: isWide ? { intensity: 0 } : { intensity : 1 },
+        delay: 2300,
+        config: {mass :4, tension: 200, friction: 70}
+    })
+}
+
 export function Planets() {
+
+    const { viewport } = useThree();
 
     const sphereRef = useRef<THREE.Object3D | undefined>();
 
@@ -44,7 +57,8 @@ export function Planets() {
         }
     });
     
-    const pointLightSpringAnimation = PointLightSprint();
+    const pointLightSpringAnimation = PointLightSpring();
+    const secondPointLightSpringAnimation = SecondPointLightSpring();
 
     const ringRef = useRef<THREE.Object3D | undefined>();
     useFrame(({clock}) => {
@@ -55,24 +69,38 @@ export function Planets() {
     });
 
     const ringRef2 = useRef<THREE.Object3D | undefined>();
-    useFrame(({clock}) => {
-        if(ringRef2.current) {
-            ringRef2.current.rotation.z += 0.002;
-            ringRef2.current.rotation.y += Math.sin(clock.getElapsedTime()) * 0.0004;
-        }
-    });
-
     const sphereRefThree = useRef<THREE.Object3D | undefined>();
-    useFrame(() => {
-        if (sphereRefThree.current) {
+    const sphereRefFour = useRef<THREE.Object3D | undefined>();
+    useFrame(({clock}) => {
+        
+        const isWide = viewport.aspect >= 1;
+
+        if (sphereRefThree.current && ringRef2.current && sphereRefFour.current) {
             sphereRefThree.current.rotation.x += 0.002;
             sphereRefThree.current.rotation.y += 0.003;
+
+            ringRef2.current.rotation.z += 0.002;
+            ringRef2.current.rotation.y += Math.sin(clock.getElapsedTime()) * 0.0004;
+
+            if (!isWide) {
+                sphereRefThree.current.position.x = -6;
+                sphereRefFour.current.position.x = -6;
+                ringRef2.current.position.x = -6;
+                
+            } else {
+                sphereRefThree.current.position.x = -15;
+                sphereRefFour.current.position.x = -15;
+                ringRef2.current.position.x = -15;
+            }
+
         }
     });
 
     return (
         <group>
+
             <animated.pointLight position={[0, 10, -40]} intensity={pointLightSpringAnimation.intensity} distance={200}/>
+            <animated.pointLight position={[0, 2, -14]} intensity={secondPointLightSpringAnimation.intensity} distance={10}/>
 
             <Sphere args={[1, 10, 6]} position={[15, -10, -30]} scale={10}>
                 <meshStandardMaterial attach="material" color={"yellow"}/>
@@ -90,7 +118,9 @@ export function Planets() {
                 <meshStandardMaterial attach="material" color={"green"}/>
             </ Sphere> */}
 
-            <Sphere args={[1, 12, 8]} position={[-15, 5.5, -12]} scale={4}>
+            <Sphere args={[1, 12, 8]} position={[-15, 5.5, -12]} scale={4} ref={
+                sphereRefFour as React.MutableRefObject<THREE.Mesh<BufferGeometry<THREE.NormalBufferAttributes>, 
+                THREE.Material | THREE.Material[], THREE.Object3DEventMap> | null>}>
                 <meshStandardMaterial attach="material" color={"lightblue"}/>
             </ Sphere>
 
