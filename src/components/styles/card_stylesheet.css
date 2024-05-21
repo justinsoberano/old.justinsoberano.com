@@ -58,35 +58,35 @@
 }
 
 .job-title {
-    font-family: 'Jetbrains';
+    font-family: 'San Francisco';
     font-weight: 800;
-    font-size: 15px;
+    font-size: 18px;
     color: white;
     text-align: left;
     margin-left: 15px;
     margin-top: 30px;
-    word-spacing: -5px;
+    word-spacing: 0px;
 }
 
 .job-description {
-    font-family: 'Jetbrains';
+    font-family: 'San Francisco';
     font-weight: 400;
-    font-size: 14px;
+    font-size: 16px;
     color: white;
     text-align: left;
     margin-left: 13.5px;
+    margin-right: 13.5px;
     margin-top: -10px;
-    word-spacing: -5px;
+    word-spacing: 0px;
 }
 
 .job-dates {
-    font-family: 'Jetbrains';
-    font-weight: normal;
-    font-size: 12px;
+    font-family: 'San Francisco';
+    font-weight: bold;
+    font-size: 14px;
     color: gray;
-    text-align: left;
-    margin-left: 325px;
-    word-spacing: -5px;
+    text-align: right;
+    margin-right: 30px;
     margin-top: -45px;
 }
 

@@ -24,8 +24,7 @@
     margin-left: 15px;
     margin-top: 20px;
     font-weight: bold;
-    font-style: italic;
-    font-family: 'Minecraft';
+    font-family: 'San Francisco';
     color: white;
     text-align: left;
 }
@@ -33,11 +32,11 @@
 .project-description {
     font-size: 14px;
     margin-left: 15px;
-    font-family: 'Jetbrains';
+    font-family: 'San Francisco';
     color: white;
     margin-top: -20px;
     text-align: left;
-    word-spacing: -5px;
+    margin-right: 200px;
 }
 
 .portfolio-gif-project {
