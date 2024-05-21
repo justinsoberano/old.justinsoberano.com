@@ -5,7 +5,7 @@ import { useThree, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { BufferGeometry } from "three";
 
-/* messy file needs to be reformatted asappppppppppp */ 
+// TODO: Reformat and clean file asappp 
 
 const PointLightSpring = () => {
     return useSpring({
@@ -99,10 +99,10 @@ export function Planets() {
     return (
         <group>
 
-            <animated.pointLight position={[0, 10, -40]} intensity={pointLightSpringAnimation.intensity} distance={200}/>
-            <animated.pointLight position={[0, 2, -14]} intensity={secondPointLightSpringAnimation.intensity} distance={10}/>
+            <animated.pointLight position={[0, 10, -40]} intensity={pointLightSpringAnimation.intensity} distance={200} castShadow/>
+            <animated.pointLight position={[0, 0, -10]} intensity={secondPointLightSpringAnimation.intensity} distance={10}/>
 
-            <Sphere args={[1, 10, 6]} position={[15, -10, -30]} scale={10}>
+            <Sphere args={[1, 10, 6]} position={[15, -10, -30]} scale={10} castShadow>
                 <meshStandardMaterial attach="material" color={"yellow"}/>
             </ Sphere>
 
@@ -160,7 +160,7 @@ export function Planets() {
 
             <Torus args={[1, 0.1, 10, 10]} rotation={[2, 2.6, 0]} position={[15, -10, -30]} scale={15} ref={
                 ringRef as React.MutableRefObject<THREE.Mesh<BufferGeometry<THREE.NormalBufferAttributes>, 
-                THREE.Material | THREE.Material[], THREE.Object3DEventMap> | null>}>
+                THREE.Material | THREE.Material[], THREE.Object3DEventMap> | null>} receiveShadow>
                 <meshStandardMaterial attach="material" color={"purple"} roughness={0}/>
             </Torus>
 

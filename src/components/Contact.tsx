@@ -9,25 +9,30 @@ export const Contact = (props: {
     changeTimer: (arg0: number) => void; 
     changeShowContact: (arg0: boolean) => void; }) => {
 
-    let toggle = props.s
+    let toggle = props.s // Assinging props.s to a local variable
 
+    // Function to create spring animation with a specified delay
     function ContactSpring(delay: number) {
-			return useSpring({
-				from: !toggle
-					? { opacity: 1, transform: "translateY(450px)" }
-					: { opacity: 0, transform: "translateY(0px)" },
-				to: !toggle
-					? { opacity: 1, transform: "translateY(0px)" }
-					: { opacity: 0, transform: "translateY(450px)" },
-				delay: delay,
-				config: { mass: 3.5, tension: 220, friction: 45 },
-			});
-		}
+        return useSpring({
+            // Animation starting point when 'toggle' is false
+            from: !toggle 
+                ? { opacity: 1, transform: "translateY(450px)" } // Fully opaque and shifted down
+                : { opacity: 0, transform: "translateY(0px)" }, // Transparent and at original position
+            // Animation ending point when 'toggle' is false
+            to: !toggle 
+                ? { opacity: 1, transform: "translateY(0px)" } // Fully opaque and at original position
+                : { opacity: 0, transform: "translateY(450px)" }, // Transparent and shifted down
+            delay: delay, // Delay before animation starts
+            config: { mass: 3.5, tension: 220, friction: 45 }, // Physics-based animation configuration
+        });
+    }
 
+    // opens a URL in a new tab
     function openInNewTab(url: string) {
 			window.open(url, "_blank");
 	}
 
+    // Contact buttons 
     return (
         <>
             <a.div className="noselect button-container" style={{ ...ContactSpring(0) }}>

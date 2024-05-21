@@ -9,28 +9,34 @@ import "./styles/card_stylesheet.css"
 import "./styles/global_stylesheet.css"
 import { useThree } from "@react-three/fiber";
 
+// Buttons component
 export const Buttons = () => {
-    function ButtonSprings(delay: number) {
-			return useSpring({
-				from: showButtons
-					? { opacity: 0, transform: "translateY(100px)" }
-					: { opacity: 1, transform: "translateY(0px)" },
-				to: showButtons
-					? { opacity: 1, transform: "translateY(0px)" }
-					: { opacity: 0, transform: "translateY(100px)" },
-				delay: showButtons ? delay : 0,
-				config: showButtons
-					? { mass: 4, tension: 200, friction: 40 }
-					: { mass: 1, tension: 200, friction: 40 },
-			});
-		}
 
-    const [timer, setTimer] = useState(2300);
-    const [showButtons, setButtons] = useState(true);
-    const [showExperience, setExperience] = useState(true);
-    const [showProjects, setProjects] = useState(true);
-    const [showInvolvement, setInvolvement] = useState(true);
-    const [showContact, setContact] = useState(true);
+    // Function to create spring animations for buttons with a specified delay
+    function ButtonSprings(delay: number) {
+        return useSpring({
+            // Animation starting point based on 'showButtons' state
+            from: showButtons
+                ? { opacity: 0, transform: "translateY(100px)" } // Hidden and shifted down
+                : { opacity: 1, transform: "translateY(0px)" }, // Visible and at original position
+            // Animation ending point based on 'showButtons' state
+            to: showButtons
+                ? { opacity: 1, transform: "translateY(0px)" } // Visible and at original position
+                : { opacity: 0, transform: "translateY(100px)" }, // Hidden and shifted down
+            delay: showButtons ? delay : 0, // Delay before animation starts
+            config: showButtons
+                ? { mass: 4, tension: 200, friction: 40 } // Animation configuration when buttons are shown
+                : { mass: 1, tension: 200, friction: 40 }, // Animation configuration when buttons are hidden
+        });
+    }
+
+    // State variables to manage visibility and animation timer
+    const [timer, setTimer] = useState(2300); // Initial timer state
+    const [showButtons, setButtons] = useState(true); // State to show/hide buttons
+    const [showExperience, setExperience] = useState(true); // State to show/hide Experience section
+    const [showProjects, setProjects] = useState(true); // State to show/hide Projects section
+    const [showInvolvement, setInvolvement] = useState(true); // State to show/hide Involvement section
+    const [showContact, setContact] = useState(true); // State to show/hide Contact section
 
     return(
         <div>
@@ -61,32 +67,36 @@ export const Buttons = () => {
                 </a.div>
             </a.div>
             
+            {/* Experience component with props to manage visibility and timer */}
             <Experience
-                changeShow = {show => setButtons(show)}
-                changeTimer = {timer => setTimer(timer)}
-                changeShowExperience = {showExperience => setExperience(showExperience)}
-                s = { showExperience }
+                changeShow={show => setButtons(show)}
+                changeTimer={timer => setTimer(timer)}
+                changeShowExperience={showExperience => setExperience(showExperience)}
+                s={showExperience}
             />
 
-            <Projects 
+            {/* Projects component with props to manage visibility and timer */}
+            <Projects
                 changeShow={show => setButtons(show)}
                 changeTimer={timer => setTimer(timer)}
                 changeShowProjects={showProjects => setProjects(showProjects)}
-                s = { showProjects } 
+                s={showProjects}
             />
 
+            {/* Involvement component with props to manage visibility and timer */}
             <Involvement
-                changeShow = {show => setButtons(show)}
-                changeTimer = {timer => setTimer(timer)}
-                changeShowInvolvement = {showInvolvement => setInvolvement(showInvolvement)}
-                s = { showInvolvement }
+                changeShow={show => setButtons(show)}
+                changeTimer={timer => setTimer(timer)}
+                changeShowInvolvement={showInvolvement => setInvolvement(showInvolvement)}
+                s={showInvolvement}
             />
 
+            {/* Contact component with props to manage visibility and timer */}
             <Contact
-                changeShow = {show => setButtons(show)}
-                changeTimer = {timer => setTimer(timer)}
-                changeShowContact = {showContact => setContact(showContact)}
-                s = { showContact }
+                changeShow={show => setButtons(show)}
+                changeTimer={timer => setTimer(timer)}
+                changeShowContact={showContact => setContact(showContact)}
+                s={showContact}
             />
 
         </div>

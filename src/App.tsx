@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Background from "./components/render_engine/Canvas";
+import Background from "./components/canvas/Canvas";
 
 declare const InstallTrigger: any;
 

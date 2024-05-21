@@ -22,11 +22,14 @@ import { LastLetterO1, LastLetterS, LastLetterA, LastLetterB, LastLetterE, LastL
 import "../styles/canvas_stylesheet.css";
 import "../styles/global_stylesheet.css";
 
+// Extending the available components in @react-three/fiber with custom passes
 extend({ FilmPass, GlitchPass, UnrealBloomPass })
 
+// Audio setup
 const main = new Audio("assets/audio/main.mp3");
 main.loop = true;
 
+// Extending JSX Intrinsic Elements to include custom passes
 declare global {
     namespace JSX {
         interface IntrinsicElements {
@@ -42,28 +45,34 @@ declare global {
     }
 }
 
+// Component for camera animation
 const CameraAnimation: React.FC = () => {
     const [started, setStarted] = useState(false);
     const [musicStarted, setMusicStarted] = useState(false);
     const vec = new THREE.Vector3();
     const { viewport } = useThree();
+
+    // Start the animation after a delay
     useEffect(() => {
         setTimeout(() => setStarted(true), 2000);
-    });
+    }, []);
+
+    // Animate the camera position
     useFrame(state => {
         if (started) {
-            if(!musicStarted) {
+            if (!musicStarted) {
                 setMusicStarted(true);
             }
-            if(viewport.aspect > 1) 
+            if (viewport.aspect > 1) 
                 state.camera.position.lerp(vec.set(0, -3, 7), .025);
             else if (viewport.aspect <= 1) 
-                state.camera.position.lerp(vec.set(0, -3, 5), .025);
+                state.camera.position.lerp(vec.set(0, -3, 5), .040);
         }
     });
     return null;
 }
 
+// Main background component
 const Background: React.FC = () =>{
 
     const [start, setStart] = useState(false)
@@ -72,10 +81,12 @@ const Background: React.FC = () =>{
     const pauseAudio = () => {
         main.pause();
     }
+
     const startAudio = () => {
         main.play();
     }
 
+    // Play the audio when 'start' state changes to true
     useEffect(() => {
         if(start) {
             main.play();
@@ -84,7 +95,7 @@ const Background: React.FC = () =>{
 
     return (
         <>
-            <Canvas dpr={1}>
+            <Canvas dpr={1} shadows>
                 <Stars radius={0.1} depth={30} count={2000} factor={0.7} saturation={2} fade speed={2} />
                 <Suspense fallback={null}> {start && 
                     <>
@@ -108,6 +119,7 @@ const Background: React.FC = () =>{
     );  
 }
 
+// Component for rendering first name letters
 const FirstName: React.FC = () => {
     return (
         <group>
@@ -121,6 +133,7 @@ const FirstName: React.FC = () => {
     );
 }
 
+// Component for rendering last name letters
 const LastName: React.FC = () => {
     return(
         <group>
@@ -136,14 +149,15 @@ const LastName: React.FC = () => {
     )
 }
 
+// Component for rendering effects
 const EffectsComposer: React.FC = () => {
     const {viewport} = useThree();
-    let bloom = viewport.aspect >= 0.7 ? 0.5 : 0.8;
+    let bloom = viewport.aspect >= 1 ? 0.6 : 0.8;
     return (
         <group>
             <Effects>
                 <unrealBloomPass attachArray={"passes"} args={[undefined, bloom, 2.2, 0.7]} />
-                <filmPass attachArray={"passes"} args={[0.7, 0.5, 1024, false]} />
+                <filmPass attachArray={"passes"} args={[0.5, 0.5, 1024, false]} />
             </Effects>
         </group>
     )
