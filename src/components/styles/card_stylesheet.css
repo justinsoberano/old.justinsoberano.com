@@ -2,7 +2,7 @@
 .experience-container {
     overflow: auto;
     white-space: nowrap;
-    margin-top: -400px;
+    margin-top: -410px;
     position: relative;
     zoom: 0.8;
 }
@@ -40,7 +40,7 @@
     backdrop-filter: blur(10px);
     border-radius: 15px;
     width: 450px;
-    height: 350px;
+    height: 355px;
     border: 4px solid white;
     overflow-wrap: break-word;
 }
@@ -64,7 +64,7 @@
     color: white;
     text-align: left;
     margin-left: 15px;
-    margin-top: 30px;
+    margin-top: 25px;
     word-spacing: 0px;
 }
 
@@ -83,7 +83,7 @@
 .job-dates {
     font-family: 'San Francisco';
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
     color: gray;
     text-align: right;
     margin-right: 30px;
