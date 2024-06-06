@@ -57,7 +57,7 @@ export const Projects = ({s, changeShow, changeTimer, changeShowProjects}: {
                 // Set the fetched data to projectData state
                 setProjectsData(data as ProjectData[]);
             })
-    }, []); // Empty dependency array for a one-time only run
+    }, [projectsData]); // Empty dependency array for a one-time only run
 
     // Map through the projectData array to generate project cards
     const cards = projectsData.map((project) => (

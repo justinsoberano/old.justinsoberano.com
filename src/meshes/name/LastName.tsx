@@ -40,7 +40,9 @@ const PositionSpring = (
 };
 
 // Define a function to create a scale spring animation
-const ScaleSpring = (): SpringValues<{ scale: [number, number, number] }> => {
+const ScaleSpring = (
+	delayScale: number
+): SpringValues<{ scale: [number, number, number] }> => {
 	const { viewport } = useThree(); // Get the viewport details using useThree hook
 
 	// Define mobile scale
@@ -63,7 +65,7 @@ const ScaleSpring = (): SpringValues<{ scale: [number, number, number] }> => {
 		// Define spring configuration with mass, tension, and friction
 		config: { mass: 5, tension: 500, friction: 50 },
 		// Add a delay before the animation starts
-		delay: 2500,
+		delay: isWide ? 2500 : 3000 + delayScale,
 	});
 };
 
@@ -79,7 +81,7 @@ export function LastLetterS(props: any) {
 		0.475 - viewport.aspect * 0.5,
 		-3
 	);
-	const scale = ScaleSpring();
+	const scale = ScaleSpring(0);
 
 	const { nodes, materials } = useGLTF(
 		"assets/letters/bit_s.gltf"
@@ -117,7 +119,7 @@ export function LastLetterO1(props: any) {
 		0.475 - viewport.aspect * 0.3,
 		-3
 	);
-	const scale = ScaleSpring();
+	const scale = ScaleSpring(40);
 
 	const { nodes, materials } = useGLTF(
 		"assets/letters/bit_o.gltf"
@@ -154,7 +156,7 @@ export function LastLetterB(props: any) {
 		0.475 - viewport.aspect * 0.3,
 		-3
 	);
-	const scale = ScaleSpring();
+	const scale = ScaleSpring(80);
 
 	const { nodes, materials } = useGLTF(
 		"assets/letters/bit_b.gltf"
@@ -190,7 +192,7 @@ export function LastLetterE(props: any) {
 		0.475 - viewport.aspect * 0.3,
 		-3
 	);
-	const scale = ScaleSpring();
+	const scale = ScaleSpring(120);
 
 	const { nodes, materials } = useGLTF(
 		"assets/letters/bit_e.gltf"
@@ -226,7 +228,7 @@ export function LastLetterR(props: any) {
 		0.475 - viewport.aspect * 0.3,
 		-3
 	);
-	const scale = ScaleSpring();
+	const scale = ScaleSpring(160);
 
 	const { nodes, materials } = useGLTF(
 		"assets/letters/bit_r.gltf"
@@ -262,7 +264,7 @@ export function LastLetterA(props: any) {
 		0.475 - viewport.aspect * 0.3,
 		-3
 	);
-	const scale = ScaleSpring();
+	const scale = ScaleSpring(200);
 
 	const { nodes, materials } = useGLTF(
 		"assets/letters/bit_a.gltf"
@@ -298,7 +300,7 @@ export function LastLetterN(props: any) {
 		0.475 - viewport.aspect * 0.3,
 		-3
 	);
-	const scale = ScaleSpring();
+	const scale = ScaleSpring(240);
 
 	const { nodes, materials } = useGLTF(
 		"assets/letters/bit_n.gltf"
@@ -335,7 +337,7 @@ export function LastLetterO2(props: any) {
 		0.475 - viewport.aspect * 0.3,
 		-3
 	);
-	const scale = ScaleSpring();
+	const scale = ScaleSpring(280);
 
 	const { nodes, materials } = useGLTF(
 		"assets/letters/bit_o.gltf"

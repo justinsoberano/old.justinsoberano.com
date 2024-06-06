@@ -66,7 +66,7 @@ const CameraAnimation: React.FC = () => {
             if (viewport.aspect > 1) 
                 state.camera.position.lerp(vec.set(0, -3, 7), .025);
             else if (viewport.aspect <= 1) 
-                state.camera.position.lerp(vec.set(0, -3, 5), .040);
+                state.camera.position.lerp(vec.set(0, -3, 5), .025);
         }
     });
     return null;
@@ -110,10 +110,13 @@ const Background: React.FC = () =>{
                 <EffectsComposer />
             </Canvas>
             {start && <Buttons />}
-            {start && showSound && <p className={'soundtext'}
-            onClick={() => {pauseAudio(); setShowSound(false)}}> PAUSE MUSIC </p>}
-            {start && !showSound && <p className={'soundtext'}
-            onClick={() => {startAudio(); setShowSound(true)}}> UNPAUSE MUSIC </p>}
+            <div>
+                {start && showSound && <p className={'soundtext'}
+                onClick={() => {pauseAudio(); setShowSound(false)}}> PAUSE MUSIC </p>}
+                {start && !showSound && <p className={'soundtext'}
+                onClick={() => {startAudio(); setShowSound(true)}}> UNPAUSE MUSIC </p>}
+            </div>
+            
             <LoadingScreen started={start} onStarted={() => setStart(true)} />
         </>
     );  

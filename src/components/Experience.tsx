@@ -51,7 +51,7 @@ export const Experience = ({s, changeShow, changeTimer, changeShowExperience}: {
             .then((data) => {
                 setExperienceData(data as ExperienceData[]);
             })
-    }, []); // Empty dependency array
+    }, [experienceData]); // Empty dependency array
 
     // Map through the experienceData array
     const cards = experienceData.map((exp) => (

@@ -54,7 +54,7 @@ export const Involvement = ({s, changeShow, changeTimer, changeShowInvolvement}:
                 // Setting the fetched data to involvementData state
                 setInvolvementData(data as InvolvementData[]);
             });
-    }, []); // Empty dependency array ensures this runs only once after the initial render
+    }, [involvementData]); // Empty dependency array ensures this runs only once after the initial render
 
     // Mapping through the involvementData array to generate involvement cards
     const cards = involvementData.map((item) => (
