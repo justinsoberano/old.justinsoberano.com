@@ -6,7 +6,6 @@ declare const InstallTrigger: any;
 export default function App() {
 
   useEffect(() => {
-    /* Checks for Firefox */
     const isFirefox = typeof InstallTrigger !== 'undefined';
     if (isFirefox) {
       alert("This website is not optimized for Firefox. Currently working on a fix :)")

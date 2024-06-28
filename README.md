@@ -3,6 +3,7 @@
 
 Created with:
  - React
+ - TypeScript
  - ThreeJS
  - react-three-drei
  - react-spring
