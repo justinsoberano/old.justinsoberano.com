@@ -52,7 +52,7 @@ export const Contact = (props: {
 				className="button-design light-purple"
 				onClick={() =>
 					openInNewTab(
-						"https://docs.google.com/viewer?url=https://github.com/justinsoberano/portfolio-data/raw/main/resume/resume.pdf"
+						"https://data.justinsoberano.com/resume/resume.pdf"
 					)
 				}
 				style={{ ...ContactSpring(100) }}
