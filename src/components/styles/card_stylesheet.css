@@ -90,21 +90,11 @@
     margin-top: -45px;
 }
 
-.meta-image {
-    border-radius: 10px 10px 0 0;
-    width: 325px;
-    height: 150px;
-    background-image: linear-gradient(to right, transparent, black),
-        url('https://github.com/justinsoberano/portfolio-data/blob/main/images/experience_images/meta_experience_pre.gif?raw=true');
-    background-size: 50% 100%, cover;
-    background-position: right, center; 
-    background-repeat: no-repeat, no-repeat; 
-}
-
 .tech-stack {
     width: 150px;
     position: inline-block;
     margin-top: -100%;
     margin-bottom: 15px;
     margin-left: 65%;
+    z-index: 999;
 }
