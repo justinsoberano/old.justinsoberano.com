@@ -62,9 +62,9 @@ export const Experience = ({
 					backgroundPosition: "center",
 					backgroundRepeat: "no-repeat",
 					WebkitMaskImage:
-						"linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 75%, rgba(0,0,0,0.5) 85%, rgba(0,0,0,0) 100%)",
+						"linear-gradient(to right, rgba(0,0,0,1) 80%, rgba(0,0,0,0.7) 85%, rgba(0,0,0,0.5) 90%, rgba(0,0,0,0) 100%)",
 					maskImage:
-						"linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 75%, rgba(0,0,0,0.5) 85%, rgba(0,0,0,0) 100%)",
+						"linear-gradient(to right, rgba(0,0,0,1) 75%, rgba(0,0,0,0.7) 85%, rgba(0,0,0,0.5) 90%, rgba(0,0,0,0) 100%)",
 				}}
 			/>
 			<img className="tech-stack" src={exp.techStackImage} alt={"techstack"} />

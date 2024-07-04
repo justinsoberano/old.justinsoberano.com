@@ -19,11 +19,20 @@ main.loop = true;
 const Background: React.FC = () =>{
     const [start, setStart] = useState(false)
     const [showSound, setShowSound] = useState(true)
+    const [showLoadingScreen, setShowLoadingScreen] = useState(true);
+
     const pauseAudio = () => {
         main.pause();
     }
     const startAudio = () => {
         main.play();
+    }
+
+    const handleShowLoadingScreen = () => {
+        setStart(true)
+        setTimeout(() => {
+            setShowLoadingScreen(false);
+        }, 250);
     }
 
     useEffect(() => {
@@ -54,7 +63,7 @@ const Background: React.FC = () =>{
                 {start && !showSound && <p className={'soundtext'}
                 onClick={() => {startAudio(); setShowSound(true)}}> UNPAUSE MUSIC </p>}
             </div>
-            <LoadingScreen started={start} onStarted={() => setStart(true)} />
+            {showLoadingScreen && <LoadingScreen started={start} onStarted={handleShowLoadingScreen} />}
         </>
     );  
 }
