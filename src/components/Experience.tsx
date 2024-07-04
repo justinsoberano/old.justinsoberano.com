@@ -37,7 +37,7 @@ export const Experience = ({
 	});
 	useEffect(() => {
 		fetch(
-			"https://raw.githubusercontent.com/justinsoberano/portfolio-data/main/card_data/experiences_data.json"
+			"https://data.justinsoberano.com/info/experiences.json"
 		)
 			.then((response) => {
 				if (!response.ok) {

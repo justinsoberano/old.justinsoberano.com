@@ -39,7 +39,7 @@ export const Projects = ({
 
 	React.useEffect(() => {
 		fetch(
-			"https://raw.githubusercontent.com/justinsoberano/portfolio-data/main/card_data/projects_data.json"
+			"https://data.justinsoberano.com/info/projects.json"
 		)
 			.then((response) => {
 				if (!response.ok) {

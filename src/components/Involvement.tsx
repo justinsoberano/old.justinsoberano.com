@@ -36,7 +36,7 @@ export const Involvement = ({
 	});
 	useEffect(() => {
 		fetch(
-			"https://raw.githubusercontent.com/justinsoberano/portfolio-data/main/card_data/involvement_data.json"
+			"https://data.justinsoberano.com/info/involvement.json"
 		)
 			.then((response) => {
 				if (!response.ok) {
