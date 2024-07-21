@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { ContentDisplay } from "./Content";
-import Button from "./Button";
+import { ContentDisplay } from "./utils/Content";
+import Button from "./utils/Button";
 import "./styles/button_stylesheet.css";
 import "./styles/card_stylesheet.css";
 import "./styles/global_stylesheet.css";

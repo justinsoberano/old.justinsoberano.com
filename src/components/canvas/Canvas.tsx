@@ -1,7 +1,7 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Stars } from "@react-three/drei";
-import { LoadingScreen } from "../LoadingScreen";
+import { LoadingScreen } from "../utils/LoadingScreen";
 import { Menu } from "../Menu";
 import { Planets } from "../../meshes/geometries/BackgroundPlanets";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./Button";
+import Button from "../utils/Button";
 import "./styles/button_stylesheet.css";
 import "./styles/contact_stylesheet.css";
 import "./styles/global_stylesheet.css";

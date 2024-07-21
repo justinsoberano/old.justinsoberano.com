@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { Experience } from "./Experience";
-import { Contact } from "./Contact";
-import { Involvement } from "./Involvement";
-import { Projects } from "./Projects";
+import { Experience } from "../content/Experience";
+import { Contact } from "../content/Contact";
+import { Involvement } from "../content/Involvement";
+import { Projects } from "../content/Projects";
 
 type ContentDisplayProps = {
   activeContent: string | null;

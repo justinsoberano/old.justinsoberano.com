@@ -5,15 +5,10 @@ export const LoadingScreen: React.FC<{
 	started: boolean;
 	onStarted: () => void;
 }> = ({ started, onStarted }) => {
-    // TODO: Use concat here to remove from view.
 	return ( 
 		<div
 			className={started ? "loadingScreen--started" : "loadingScreen"}
-			style={{
-				position: "absolute",
-				top: "0%",
-			}}
-		>
+			style={{position: "absolute", top: "0%",}}>
 			<p className={"top-text"}> Ready Player One? </p>
 			<p className={"ready-text"} onClick={onStarted}>
 				{" "}
@@ -29,13 +24,11 @@ export const LoadingScreen: React.FC<{
 					fontFamily: "Minecraft",
 					fontStyle: "normal",
 					letterSpacing: "2px",
-				}}
-			>
+				}}>
 				<a
 					href="https://github.com/justinsoberano/justinsoberano.com"
 					target="_blank"
-					style={{ color: "white", cursor: "pointer" }}
-				>
+					style={{ color: "white", cursor: "pointer" }} rel="noreferrer">
 					v2.4.3{" "}
 				</a>
 			</p>
