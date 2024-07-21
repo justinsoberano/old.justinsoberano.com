@@ -29,7 +29,7 @@ export const LoadingScreen: React.FC<{
 					href="https://github.com/justinsoberano/justinsoberano.com"
 					target="_blank"
 					style={{ color: "white", cursor: "pointer" }} rel="noreferrer">
-					v2.4.3{" "}
+					v2.4.4{" "}
 				</a>
 			</p>
 		</div>
