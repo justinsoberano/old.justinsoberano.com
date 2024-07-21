@@ -2,7 +2,7 @@ import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Stars } from "@react-three/drei";
 import { LoadingScreen } from "../LoadingScreen";
-import { Buttons } from "../Buttons";
+import { Menu } from "../Menu";
 import { Planets } from "../../meshes/geometries/BackgroundPlanets";
 
 import CameraAnimation from "./helpers/CameraAnimation";
@@ -33,13 +33,11 @@ const Background: React.FC = () => {
       setShowLoadingScreen(false);
     }, 250);
   };
-
   useEffect(() => {
     if (start) {
       main.play();
     }
   }, [start]);
-
   return (
     <>
       <Canvas dpr={1} shadows>
@@ -57,7 +55,7 @@ const Background: React.FC = () => {
         </Suspense>
         <EffectsComposer />
       </Canvas>
-      {start && <Buttons />}
+      {start && <Menu />}
       <div>
         {start && showSound && (
           <p className={"soundtext"} onClick={() => { pauseAudio(); setShowSound(false); }}>
@@ -74,5 +72,4 @@ const Background: React.FC = () => {
     </>
   );
 };
-
 export default Background;
