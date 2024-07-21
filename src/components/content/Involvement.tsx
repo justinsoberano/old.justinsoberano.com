@@ -1,6 +1,6 @@
 import { useSpring, a } from "@react-spring/web";
-import "./styles/involvement_stylesheet.css";
-import "./styles/global_stylesheet.css";
+import "../styles/involvement_stylesheet.css";
+import "../styles/global_stylesheet.css";
 
 interface InvolvementData {
   id: number;

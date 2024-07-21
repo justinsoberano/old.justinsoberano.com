@@ -1,6 +1,6 @@
 import { useSpring, animated as a } from "@react-spring/web";
-import "./styles/card_stylesheet.css";
-import "./styles/global_stylesheet.css";
+import "../styles/card_stylesheet.css";
+import "../styles/global_stylesheet.css";
 
 interface ExperienceData {
   id: number;

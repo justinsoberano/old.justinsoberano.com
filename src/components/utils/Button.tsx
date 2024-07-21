@@ -13,7 +13,7 @@ export const Button: React.FC<ButtonProps> = ({ toggle, delay, className, onClic
 		from: { opacity: 0, transform: "translateY(200px)" },
 		enter: { opacity: 1, transform: "translateY(0px)" },
 		leave: { opacity: 0, transform: "translateY(200px)" },
-    config: { mass: 7, tension: 500, friction: 100 },
+    config: { mass: 10, tension: 450, friction: 80 },
 		delay,
 	});
 	return transitions(

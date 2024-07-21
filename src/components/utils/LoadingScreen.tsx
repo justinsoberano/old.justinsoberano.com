@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/loading_stylesheet.css";
+import "../styles/loading_stylesheet.css";
 
 export const LoadingScreen: React.FC<{
 	started: boolean;

@@ -1,7 +1,7 @@
 import React from "react";
 import { useSpring, a } from "@react-spring/web";
-import "./styles/project_stylesheet.css";
-import "./styles/global_stylesheet.css";
+import "../styles/project_stylesheet.css";
+import "../styles/global_stylesheet.css";
 
 interface ProjectData {
   id: number;
