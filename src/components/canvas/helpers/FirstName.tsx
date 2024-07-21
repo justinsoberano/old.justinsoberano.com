@@ -8,12 +8,12 @@ import { LetterI,
 export default function FirstName() {
   return (
     <group>
-        <LetterJ />
-        <LetterU />
-        <LetterS />
-        <LetterT />
-        <LetterI />
-        <LetterN />
+      <LetterJ />
+      <LetterU />
+      <LetterS />
+      <LetterT />
+      <LetterI />
+      <LetterN />
     </group>
-);
+  );
 }

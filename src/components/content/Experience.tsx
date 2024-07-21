@@ -50,16 +50,13 @@ export const Experience: React.FC<ExperienceProps> = ({ s, changeShow, changeTim
 
   return (
     <Spring fromTransform={fromTransform} toTransform={toTransform}>
-      <div className="noselect experience-container">
-        {cards}
-        <div
-          className="card-back-button"
+      <div className="noselect experience-container"> {cards}
+        <div className="card-back-button"
           onClick={() => {
             changeShow(true);
             changeTimer(100);
             changeShowExperience(false);
-          }}
-        >
+          }}>
           <p> back </p>
         </div>
       </div>

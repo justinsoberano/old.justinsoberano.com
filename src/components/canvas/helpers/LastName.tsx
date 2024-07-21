@@ -11,14 +11,14 @@ import { LastLetterO1,
 export default function LastName() {
   return(
     <group>
-        <LastLetterS />
-        <LastLetterO1 />
-        <LastLetterB />
-        <LastLetterE />
-        <LastLetterR />
-        <LastLetterA />
-        <LastLetterN />
-        <LastLetterO2 />
+      <LastLetterS />
+      <LastLetterO1 />
+      <LastLetterB />
+      <LastLetterE />
+      <LastLetterR />
+      <LastLetterA />
+      <LastLetterN />
+      <LastLetterO2 />
     </group>
-)
+  );
 }

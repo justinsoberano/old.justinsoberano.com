@@ -1,17 +1,17 @@
 import React from "react";
 import "../styles/loading_stylesheet.css";
 
-export const LoadingScreen: React.FC<{
+type LoadingScreenProps = {
 	started: boolean;
 	onStarted: () => void;
-}> = ({ started, onStarted }) => {
+}
+
+export const LoadingScreen: React.FC<LoadingScreenProps> = ({ started, onStarted }) => {
 	return ( 
-		<div
-			className={started ? "loadingScreen--started" : "loadingScreen"}
+		<div className={started ? "loadingScreen--started" : "loadingScreen"}
 			style={{position: "absolute", top: "0%",}}>
 			<p className={"top-text"}> Ready Player One? </p>
-			<p className={"ready-text"} onClick={onStarted}>
-				{" "}
+			<p className={"ready-text"} onClick={onStarted}>{" "}
 				{">"} INSERT COIN {"<"}
 			</p>
 			<p

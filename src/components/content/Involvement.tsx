@@ -41,16 +41,13 @@ export const Involvement: React.FC<InvolvementProps> = ({ s, changeShow, changeT
 
   return (
     <Spring fromTransform={fromTransform} toTransform={toTransform}>
-      <div className="noselect involvement-container">
-        {cards}
-        <div
-          className="project-back-button"
+      <div className="noselect involvement-container"> {cards}
+        <div className="project-back-button"
           onClick={() => {
             changeShow(true);
             changeTimer(100);
             changeShowInvolvement(false);
-          }}
-        >
+          }}>
           <p> back </p>
         </div>
       </div>

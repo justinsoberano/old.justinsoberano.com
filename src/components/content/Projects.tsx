@@ -43,16 +43,13 @@ export const Projects: React.FC<ProjectsProps> = ({ s, changeShow, changeTimer, 
 
   return (
     <Spring fromTransform={fromTransform} toTransform={toTransform}>
-      <div className="noselect project-container">
-        {cards}
-        <div
-          className="project-back-button"
+      <div className="noselect project-container">{cards}
+        <div className="project-back-button"
           onClick={() => {
             changeShow(true);
             changeTimer(100);
             changeShowProjects(false);
-          }}
-        >
+          }}>
           <p> back </p>
         </div>
       </div>
