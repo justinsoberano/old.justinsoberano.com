@@ -1,4 +1,5 @@
-import { useSpring, a } from "@react-spring/web";
+import React from "react";
+import Spring from "../utils/Spring";
 import "../styles/involvement_stylesheet.css";
 import "../styles/global_stylesheet.css";
 
@@ -19,17 +20,10 @@ type InvolvementProps = {
   data: InvolvementData[];
 };
 
-export const Involvement: React.FC<InvolvementProps> = ({s, changeShow, changeTimer, changeShowInvolvement, data}) => {
-  const styles = useSpring({
-    from: s
-      ? { opacity: 1, transform: "translateY(200px)" }
-      : { opacity: 1, transform: "translateY(0px)" },
-    to: s
-      ? { opacity: 1, transform: "translateY(0px)" }
-      : { opacity: 1, transform: "translateY(200px)" },
-    delay: 0,
-    config: { mass: 1, tension: 200, friction: 50 },
-  });
+export const Involvement: React.FC<InvolvementProps> = ({ s, changeShow, changeTimer, changeShowInvolvement, data }) => {
+  const fromTransform = s ? "translateY(200px)" : "translateY(0px)";
+  const toTransform = s ? "translateY(0px)" : "translateY(200px)";
+
   const cards = data.map((item) => (
     <div className="card-design-involvement" key={item.id}>
       <img className="involvement-image" src={item.image} alt="involvement-image" />
@@ -44,17 +38,22 @@ export const Involvement: React.FC<InvolvementProps> = ({s, changeShow, changeTi
       </p>
     </div>
   ));
+
   return (
-    <a.div className="noselect involvement-container" style={styles}>
-      {cards}
-      <div className="project-back-button"
-        onClick={() => {
-          changeShow(true);
-          changeTimer(100);
-          changeShowInvolvement(false);
-        }}>
-        <p> back </p>
+    <Spring fromTransform={fromTransform} toTransform={toTransform}>
+      <div className="noselect involvement-container">
+        {cards}
+        <div
+          className="project-back-button"
+          onClick={() => {
+            changeShow(true);
+            changeTimer(100);
+            changeShowInvolvement(false);
+          }}
+        >
+          <p> back </p>
+        </div>
       </div>
-    </a.div>
+    </Spring>
   );
 };
