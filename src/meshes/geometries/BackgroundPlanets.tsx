@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import { Box, Cloud, Sphere, Torus, useGLTF } from "@react-three/drei";
-import { useSpring, animated, Spring } from "@react-spring/three";
+import { Sphere, Torus } from "@react-three/drei";
+import { useSpring, animated } from "@react-spring/three";
 import { useThree, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { BufferGeometry } from "three";
