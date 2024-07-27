@@ -1,7 +1,13 @@
 import React from "react";
 import Spring from "../utils/Spring";
-import "../styles/project_stylesheet.css";
-import "../styles/global_stylesheet.css";
+import { ProjectContainer, 
+         ProjectBackButton, 
+         ProjectCard, 
+         ProjectDesc, 
+         ProjectImg, 
+         ProjectTech, 
+         ProjectTitle
+} from "./styles/ProjectStyles";
 
 interface ProjectData {
   id: number;
@@ -26,33 +32,31 @@ export const Projects: React.FC<ProjectsProps> = ({ s, changeShow, changeTimer, 
   const toTransform = s ? "translateY(0px)" : "translateY(300px)";
 
   const cards = data.map((project) => (
-    <div className="card-design-projects" key={project.id}>
-      <img className="portfolio-image" src={project.projectImage} alt="portfolio-image" />
-      <img className="portfolio-techstack" src={project.techStackImage} alt="tech stack" />
-      <p className="project-title">{project.title}</p>
-      <p className="project-description">
+    <ProjectCard key={project.id}>
+      <ProjectImg src={project.projectImage}/>
+      <ProjectTech src={project.techStackImage}/>
+      <ProjectTitle>{project.title}</ProjectTitle>
+      <ProjectDesc>
         {project.description}
         {project.link && (
           <a href={project.link} target="_blank" style={{ color: "lightblue", fontWeight: "800" }} rel="noreferrer">
             {project.linkText}
           </a>
         )}
-      </p>
-    </div>
+      </ProjectDesc>
+    </ProjectCard>
   ));
 
   return (
     <Spring fromTransform={fromTransform} toTransform={toTransform}>
-      <div className="noselect project-container">{cards}
-        <div className="project-back-button"
+      <ProjectContainer>{cards}
+        <ProjectBackButton 
           onClick={() => {
             changeShow(true);
             changeTimer(100);
             changeShowProjects(false);
-          }}>
-          <p> back </p>
-        </div>
-      </div>
+          }}>back</ProjectBackButton>
+      </ProjectContainer>
     </Spring>
   );
 };

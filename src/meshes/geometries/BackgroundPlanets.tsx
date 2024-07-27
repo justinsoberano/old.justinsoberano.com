@@ -5,7 +5,7 @@ import { useThree, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { BufferGeometry } from "three";
 
-// TODO: Reformat and clean file asappp
+// TODO: Reformat and clean file asappp 
 
 const PointLightSpring = () => {
 	return useSpring({
