@@ -1,7 +1,13 @@
 import React from "react";
 import Spring from "../utils/Spring";
-import "../styles/involvement_stylesheet.css";
-import "../styles/global_stylesheet.css";
+import { ProjectBackButton } from "./styles/ProjectStyles";
+import { 
+  InvolvementCard, 
+  InvolvementContainer, 
+  InvolvementDesc, 
+  InvolvementImg, 
+  InvolvementTitle 
+} from "./styles/InvolvementStyles";
 
 interface InvolvementData {
   id: number;
@@ -24,33 +30,30 @@ export const Involvement: React.FC<InvolvementProps> = ({ s, changeShow, changeT
   const fromTransform = s ? "translateY(200px)" : "translateY(0px)";
   const toTransform = s ? "translateY(0px)" : "translateY(200px)";
 
-  const cards = data.map((item) => (
-    <div className="card-design-involvement" key={item.id}>
-      <img className="involvement-image" src={item.image} alt="involvement-image" />
-      <p className="involvement-title">{item.title}</p>
-      <p className="involvement-description">
-        {item.description}
-        {item.link && (
-          <a href={item.link} target="_blank" style={{ color: "lightblue", fontWeight: "800" }} rel="noreferrer">
-            {item.linkText}
+  const cards = data.map((inv) => (
+    <InvolvementCard key={inv.id}>
+      <InvolvementImg src={inv.image}/>
+      <InvolvementTitle>{inv.title}</InvolvementTitle>
+      <InvolvementDesc>
+        {inv.description}
+        {inv.link && (
+          <a href={inv.link} target="_blank" style={{ color: "lightblue", fontWeight: "800" }} rel="noreferrer">
+            {inv.linkText}
           </a>
         )}
-      </p>
-    </div>
+      </InvolvementDesc>
+    </InvolvementCard>
   ));
 
   return (
     <Spring fromTransform={fromTransform} toTransform={toTransform}>
-      <div className="noselect involvement-container"> {cards}
-        <div className="project-back-button"
-          onClick={() => {
-            changeShow(true);
-            changeTimer(100);
-            changeShowInvolvement(false);
-          }}>
-          <p> back </p>
-        </div>
-      </div>
+      <InvolvementContainer>{cards}
+        <ProjectBackButton onClick={() => {
+          changeShow(true);
+          changeTimer(100);
+          changeShowInvolvement(false);
+        }}>back</ProjectBackButton>
+      </InvolvementContainer>
     </Spring>
   );
 };
