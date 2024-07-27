@@ -3,7 +3,7 @@ import { useTransition, a } from "@react-spring/web";
 type ButtonProps = {
   toggle: boolean;
   delay: number;
-  className: string;
+  className?: string;
   onClick: () => void,
   text: string;
 }
