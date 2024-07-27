@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { ContentDisplay } from "./utils/Content";
 import "./styles/button_stylesheet.css";
-import "./styles/card_stylesheet.css";
-import "./styles/global_stylesheet.css";
 import { ButtonContainer } from "./content/styles/GlobalStyles";
 import { ContactButton, 
          ExperiencesButton, 

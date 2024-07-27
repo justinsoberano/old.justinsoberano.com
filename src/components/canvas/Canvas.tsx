@@ -11,7 +11,6 @@ import LastName from "./helpers/LastName";
 import EffectsComposer from "./helpers/EffectsComposer";
 
 import "../styles/canvas_stylesheet.css";
-import "../styles/global_stylesheet.css";
 
 const main = new Audio("assets/audio/main.mp3");
 main.loop = true;
