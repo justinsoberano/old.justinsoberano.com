@@ -1,20 +1,6 @@
 import styled, {keyframes} from "styled-components";
-import { noselect, button } from "./GlobalStyles";
+import { button } from "./GlobalStyles";
 import Button from "../../utils/Button";
-
-export const ContactButtonContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  bottom: 5vh;
-  ${noselect}
-`;
 
 export const LinkedInButton = styled(Button)`
   ${button}

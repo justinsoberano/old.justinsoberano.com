@@ -1,11 +1,11 @@
 import React from "react";
-import { BackButton, 
-         ContactButtonContainer, 
+import { BackButton,  
          ContactMeButton, 
          GithubButton, 
          LinkedInButton, 
          ResumeButton 
 } from "./styles/ContactStyles";
+import { ButtonContainer } from "./styles/GlobalStyles";
 
 const linkedIn = "https://www.linkedin.com/in/justinsoberano/";
 const github = "https://github.com/justinsoberano";
@@ -24,7 +24,7 @@ export const Contact: React.FC<ContactProps> = ({s: toggle, changeShow, changeTi
     window.open(url, "_blank");
   };
   return (
-    <ContactButtonContainer>
+    <ButtonContainer>
       <LinkedInButton toggle={toggle} delay={0} onClick={() => openInNewTab(linkedIn)} text="linkedin" />
       <GithubButton toggle={toggle} delay={50} onClick={() => openInNewTab(github)} text="github"/>
       <ResumeButton toggle={toggle} delay={100} onClick={() => openInNewTab(resume)} text="resume" />
@@ -35,6 +35,6 @@ export const Contact: React.FC<ContactProps> = ({s: toggle, changeShow, changeTi
           changeShowContact(false);
         }}
         text="back"/>
-    </ContactButtonContainer>
+    </ButtonContainer>
   );
 };

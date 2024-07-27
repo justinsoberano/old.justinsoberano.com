@@ -1,63 +1,39 @@
 import { useState } from "react";
 import { ContentDisplay } from "./utils/Content";
-import Button from "./utils/Button";
 import "./styles/button_stylesheet.css";
 import "./styles/card_stylesheet.css";
 import "./styles/global_stylesheet.css";
+import { ButtonContainer } from "./content/styles/GlobalStyles";
+import { ContactButton, 
+         ExperiencesButton, 
+         InvolvementButton, 
+         ProjectsButton 
+} from "./content/styles/MenuStyles";
 
 export const Menu: React.FC = () => {
   const [timer, setTimer] = useState<number>(2300);
   const [showButtons, setShowButtons] = useState<boolean>(true);
-  const [activeContent, setActiveContent] = useState<string | null>(null);
-
-  const handleContentClick = (content: string) => {
+  const [content, setContent] = useState<string | null>(null);
+  
+  const handleContent = (content: string) => {
     setShowButtons(false);
-    setActiveContent(content);
+    setContent(content);
   };
-
-  const handleBackClick = () => {
+  const handleBack = () => {
     setShowButtons(true);
-    setActiveContent(null);
+    setContent(null);
   };
 
   return (
-    <div>
-        <div className="noselect button-container">
-          <Button
-            toggle={showButtons}
-            delay={timer}
-            className="button-design yellow"
-            onClick={() => handleContentClick("experience")}
-            text="experiences"
-          />
-          <Button
-            toggle={showButtons}
-            delay={timer + 50}
-            className="button-design aqua"
-            onClick={() => handleContentClick("projects")}
-            text="projects"
-          />
-          <Button
-            toggle={showButtons}
-            delay={timer + 100}
-            className="button-design purple"
-            onClick={() => handleContentClick("involvement")}
-            text="involvement"
-          />
-          <Button
-            toggle={showButtons}
-            delay={timer + 150}
-            className="button-design pink"
-            onClick={() => handleContentClick("contact")}
-            text="contact"
-          />
-        </div>
-        <ContentDisplay
-          activeContent={activeContent}
-          setActiveContent={handleBackClick}
-          timer={timer}
-          setTimer={setTimer}
-        />
-    </div>
+    <>
+      <ButtonContainer>
+        <ExperiencesButton toggle={showButtons} delay={timer} onClick={() => handleContent("experience")} text="experiences"/>
+        <ProjectsButton toggle={showButtons} delay={timer + 50} onClick={() => handleContent("projects")} text="projects"/>
+        <InvolvementButton toggle={showButtons} delay={timer + 100} onClick={() => handleContent("involvement")} text="involvement"/>
+        <ContactButton toggle={showButtons} delay={timer + 150} onClick={() => handleContent("contact")} text="contact"/>
+      </ButtonContainer>
+      <ContentDisplay activeContent={content} setActiveContent={handleBack} timer={timer} setTimer={setTimer}
+      />
+    </>
   );
 };
