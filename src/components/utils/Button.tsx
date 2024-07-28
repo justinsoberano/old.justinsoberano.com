@@ -1,4 +1,5 @@
 import { useTransition, a } from "@react-spring/web";
+import { ButtonText } from "./styles/ButtonStyles";
 
 type ButtonProps = {
   toggle: boolean;
@@ -20,7 +21,7 @@ export const Button: React.FC<ButtonProps> = ({ toggle, delay, className, onClic
 		(style, item) =>
 			item && (
 				<a.div className={className} onClick={onClick} style={style}>
-					<span className="button-text">{text}</span>
+					<ButtonText>{text}</ButtonText>
 				</a.div>
 			)
 	);
