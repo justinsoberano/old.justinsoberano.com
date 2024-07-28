@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import styled from "styled-components";
 
-const noselect = `
+export const noselect = `
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;

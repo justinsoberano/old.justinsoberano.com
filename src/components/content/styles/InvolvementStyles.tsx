@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { noselect } from "./GlobalStyles";
 
 export const InvolvementCard = styled.div`
   white-space: normal;
@@ -48,4 +49,5 @@ export const InvolvementContainer = styled.div`
   white-space: nowrap;
   margin-top: -190px;
   zoom: 0.8;
+  ${noselect}
 `;

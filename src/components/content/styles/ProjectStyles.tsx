@@ -1,10 +1,12 @@
 import styled from "styled-components";
+import { noselect } from "./GlobalStyles";
 
 export const ProjectContainer = styled.div`
   overflow: auto;
   white-space: nowrap;
   margin-top: -268px;
   zoom: 0.8;
+  ${noselect}
 `;
 
 export const ProjectCard = styled.div`
