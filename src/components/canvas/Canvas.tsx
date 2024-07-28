@@ -10,7 +10,7 @@ import FirstName from "./helpers/FirstName";
 import LastName from "./helpers/LastName";
 import EffectsComposer from "./helpers/EffectsComposer";
 
-import "../styles/canvas_stylesheet.css";
+import { Sound } from "./styles/CanvasStyles";
 
 const main = new Audio("assets/audio/main.mp3");
 main.loop = true;
@@ -22,9 +22,11 @@ const Background: React.FC = () => {
 
   const pauseAudio = () => {
     main.pause();
+    setShowSound(false);
   };
   const startAudio = () => {
     main.play();
+    setShowSound(true);
   };
   const handleShowLoadingScreen = () => {
     setStart(true);
@@ -44,7 +46,6 @@ const Background: React.FC = () => {
         <Suspense fallback={null}>
           {start && (
             <>
-              <color attach={"background"} args={["rgb(0, 0, 0)"]} />
               <FirstName />
               <LastName />
               <Planets />
@@ -55,18 +56,11 @@ const Background: React.FC = () => {
         <EffectsComposer />
       </Canvas>
       {start && <Menu />}
-      <div>
-        {start && showSound && (
-          <p className={"soundtext"} onClick={() => { pauseAudio(); setShowSound(false); }}>
-            PAUSE MUSIC
-          </p>
-        )}
-        {start && !showSound && (
-          <p className={"soundtext"} onClick={() => { startAudio(); setShowSound(true); }}>
-            UNPAUSE MUSIC
-          </p>
-        )}
-      </div>
+      {start && showSound ? (
+        <Sound onClick={() => {pauseAudio()}}> PAUSE MUSIC </Sound>
+      ) : (
+        <Sound onClick={() => {startAudio()}}> PLAY MUSIC</Sound>
+      )}
       {showLoadingScreen && <LoadingScreen started={start} onStarted={handleShowLoadingScreen} />}
     </>
   );

@@ -13,6 +13,7 @@ export const ProjectCard = styled.div`
   margin: 10px;
   background-color: rgba(0, 0, 0, 0.758);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 15px;
   width: 450px;
   height: 220px;

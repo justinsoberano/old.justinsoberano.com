@@ -1,37 +1,26 @@
 import React from "react";
-import "../styles/loading_stylesheet.css";
+import { LoadingScreenContainer,
+				 TopText, 
+				 ReadyText, 
+				 Version, 
+				 Link 
+} from "./styles/LoadingScreenStyles";
 
 type LoadingScreenProps = {
 	started: boolean;
 	onStarted: () => void;
 }
 
+const repoLink = "https://github.com/justinsoberano/justinsoberano.com";
+
 export const LoadingScreen: React.FC<LoadingScreenProps> = ({ started, onStarted }) => {
 	return ( 
-		<div className={started ? "loadingScreen--started" : "loadingScreen"}
-			style={{position: "absolute", top: "0%",}}>
-			<p className={"top-text"}> Ready Player One? </p>
-			<p className={"ready-text"} onClick={onStarted}>{" "}
-				{">"} INSERT COIN {"<"}
-			</p>
-			<p
-				style={{
-					position: "absolute",
-					top: "95%",
-					left: "1%",
-					fontSize: "15px",
-					color: "white",
-					fontFamily: "Minecraft",
-					fontStyle: "normal",
-					letterSpacing: "2px",
-				}}>
-				<a
-					href="https://github.com/justinsoberano/justinsoberano.com"
-					target="_blank"
-					style={{ color: "white", cursor: "pointer" }} rel="noreferrer">
-					v2.4.4{" "}
-				</a>
-			</p>
-		</div>
+		<LoadingScreenContainer className={started ? "start" : ""}>
+			<TopText> Ready Player One? </TopText>
+			<ReadyText onClick={onStarted}>{">"} INSERT COIN {"<"}</ReadyText>
+			<Version>
+				<Link href={repoLink} target="_blank" rel="noreferrer">v2.4.4</Link>
+			</Version>
+		</LoadingScreenContainer>
 	);
 };
