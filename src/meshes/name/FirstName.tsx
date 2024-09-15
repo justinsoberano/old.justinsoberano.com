@@ -160,7 +160,7 @@ export const LetterT: React.FC = () => (
     letter="T"
     gltfPath="assets/letters/bit_t.gltf"
     positionParams={[1.2, 1.2, 0, 1 / 2.2]}
-    rotationParams={[Math.PI / 1.3, 0, 1, 2, 200, 50]}
+    rotationParams={[Math.PI / 1.3, 0, 3, 2, 200, 50]}
     scaleDelay={300}
     floatParams={[Math.sin, Math.sin, Math.cos]}
   />
@@ -171,7 +171,7 @@ export const LetterI: React.FC = () => (
     letter="I"
     gltfPath="assets/letters/bit_i.gltf"
     positionParams={[2, -1, 0, 1.12]}
-    rotationParams={[Math.PI / 3, 0.4, 1, 3.5, 200, 50]}
+    rotationParams={[-Math.PI + 0.4, 0, 0, 3.5, 200, 50]}
     scaleDelay={400}
     floatParams={[Math.sin, Math.sin, Math.sin]}
   />
