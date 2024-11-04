@@ -16,7 +16,7 @@ type ContactProps = {
 
 const linkedIn = "https://www.linkedin.com/in/justinsoberano/";
 const github = "https://github.com/justinsoberano";
-const resume = "https://data.justinsoberano.com/resume/resume.pdf";
+const resume = "https://data.justinsoberano.com/files/resume.pdf";
 const email = "mailto:me@justinsoberano.com";
 
 export const Contact: React.FC<ContactProps> = ({s: toggle, changeShow, changeTimer, changeShowContact}) => {
