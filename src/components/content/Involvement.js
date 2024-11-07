@@ -9,24 +9,7 @@ import {
   InvolvementTitle 
 } from "./styles/InvolvementStyles";
 
-interface InvolvementData {
-  id: number;
-  image: string;
-  title: string;
-  description: string;
-  link: string;
-  linkText: string;
-}
-
-type InvolvementProps = {
-  s: boolean;
-  changeShow: (show: boolean) => void;
-  changeTimer: (timer: number) => void;
-  changeShowInvolvement: (show: boolean) => void;
-  data: InvolvementData[];
-};
-
-export const Involvement: React.FC<InvolvementProps> = ({ s, changeShow, changeTimer, changeShowInvolvement, data }) => {
+export const Involvement = ({ s, changeShow, changeTimer, changeShowInvolvement, data }) => {
   const fromTransform = s ? "translateY(200px)" : "translateY(0px)";
   const toTransform = s ? "translateY(0px)" : "translateY(200px)";
 

@@ -3,24 +3,6 @@ import Spring from "../utils/Spring";
 import "../styles/global_stylesheet.css";
 import { Back, ExperienceCard, ExperienceContainer, ExperienceDate, ExperienceDesc, ExperienceEmp, ExperienceTech, ExperienceTitle } from "./styles/ExperienceStyles";
 
-interface ExperienceData {
-  id: number;
-  image: string;
-  techStackImage: string;
-  employerImage: string;
-  dates: string;
-  title: string;
-  description: string;
-}
-
-type ExperienceProps = {
-  s: boolean;
-  changeShow: (show: boolean) => void;
-  changeTimer: (timer: number) => void;
-  changeShowExperience: (show: boolean) => void;
-  data: ExperienceData[];
-};
-
 const backgroundStyle = {
   backgroundSize: "cover",
   backgroundPosition: "center",
@@ -32,7 +14,7 @@ const backgroundStyle = {
   height: "150px",
 }
 
-export const Experience: React.FC<ExperienceProps> = ({ s, changeShow, changeTimer, changeShowExperience, data }) => {
+export const Experience = ({ s, changeShow, changeTimer, changeShowExperience, data }) => {
   const fromTransform = s ? "translateY(450px)" : "translateY(0px)";
   const toTransform = s ? "translateY(0px)" : "translateY(450px)";
   const cards = data.map((exp) => (

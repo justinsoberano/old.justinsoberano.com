@@ -7,20 +7,13 @@ import { BackButton,
 } from "./styles/ContactStyles";
 import { ButtonContainer } from "./styles/GlobalStyles";
 
-type ContactProps = {
-  s: boolean;
-  changeShow: (show: boolean) => void;
-  changeTimer: (timer: number) => void;
-  changeShowContact: (show: boolean) => void;
-};
-
 const linkedIn = "https://www.linkedin.com/in/justinsoberano/";
 const github = "https://github.com/justinsoberano";
 const resume = "https://data.justinsoberano.com/files/resume.pdf";
 const email = "mailto:me@justinsoberano.com";
 
-export const Contact: React.FC<ContactProps> = ({s: toggle, changeShow, changeTimer, changeShowContact}) => {
-  const openInNewTab = (url: string) => {
+export const Contact = ({s: toggle, changeShow, changeTimer, changeShowContact}) => {
+  const openInNewTab = (url) => {
     window.open(url, "_blank");
   };
   return (

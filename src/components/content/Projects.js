@@ -9,25 +9,7 @@ import { ProjectContainer,
          ProjectTitle
 } from "./styles/ProjectStyles";
 
-interface ProjectData {
-  id: number;
-  projectImage: string;
-  techStackImage: string;
-  title: string;
-  description: string;
-  link: string;
-  linkText: string;
-}
-
-type ProjectsProps = {
-  s: boolean;
-  changeShow: (show: boolean) => void;
-  changeTimer: (timer: number) => void;
-  changeShowProjects: (show: boolean) => void;
-  data: ProjectData[];
-};
-
-export const Projects: React.FC<ProjectsProps> = ({ s, changeShow, changeTimer, changeShowProjects, data }) => {
+export const Projects = ({ s, changeShow, changeTimer, changeShowProjects, data }) => {
   const fromTransform = s ? "translateY(200px)" : "translateY(0px)";
   const toTransform = s ? "translateY(0px)" : "translateY(300px)";
 

@@ -1,4 +1,4 @@
-import React from "react";
+
 import { LoadingScreenContainer,
 				 TopText, 
 				 ReadyText, 
@@ -6,14 +6,9 @@ import { LoadingScreenContainer,
 				 Link 
 } from "./styles/LoadingScreenStyles";
 
-type LoadingScreenProps = {
-	started: boolean;
-	onStarted: () => void;
-}
-
 const repoLink = "https://github.com/justinsoberano/justinsoberano.com";
 
-export const LoadingScreen: React.FC<LoadingScreenProps> = ({ started, onStarted }) => {
+export const LoadingScreen = ({ started, onStarted }) => {
 	return ( 
 		<LoadingScreenContainer className={started ? "start" : ""}>
 			<TopText> Ready Player One? </TopText>

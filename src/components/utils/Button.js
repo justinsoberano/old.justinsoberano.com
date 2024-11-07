@@ -1,15 +1,7 @@
 import { useTransition, a } from "@react-spring/web";
 import { ButtonText } from "./styles/ButtonStyles";
 
-type ButtonProps = {
-  toggle: boolean;
-  delay: number;
-  className?: string;
-  onClick: () => void,
-  text: string;
-}
-
-export const Button: React.FC<ButtonProps> = ({ toggle, delay, className, onClick, text, }) => {
+export const Button = ({ toggle, delay, className, onClick, text, }) => {
 	const transitions = useTransition(toggle, {
 		from: { opacity: 0, transform: "translateY(200px)" },
 		enter: { opacity: 1, transform: "translateY(0px)" },
