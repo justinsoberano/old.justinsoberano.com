@@ -7,12 +7,12 @@ import { ContactButton,
          ProjectsButton 
 } from "./content/styles/MenuStyles";
 
-export const Menu: React.FC = () => {
-  const [timer, setTimer] = useState<number>(2300);
-  const [showButtons, setShowButtons] = useState<boolean>(true);
-  const [content, setContent] = useState<string | null>(null);
+export const Menu = () => {
+  const [timer, setTimer] = useState(2300);
+  const [showButtons, setShowButtons] = useState(true);
+  const [content, setContent] = useState(null);
   
-  const handleContent = (content: string) => {
+  const handleContent = (content) => {
     setShowButtons(false);
     setContent(content);
   };

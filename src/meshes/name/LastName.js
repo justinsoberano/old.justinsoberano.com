@@ -1,57 +1,40 @@
 import React from "react";
 import * as THREE from "three";
 import { useGLTF } from "@react-three/drei";
-import { useSpring, animated, SpringValues } from "@react-spring/three";
+import { useSpring, animated } from "@react-spring/three";
 import { useThree } from "@react-three/fiber";
-import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 
-const PositionSpring = (
-  mX: number,
-  mY: number,
-  mZ: number,
-  dX: number,
-  dZ: number
-): SpringValues<{ position: [number, number, number] }> => {
+const PositionSpring = (mX, mY, mZ, dX, dZ) => {
   const { viewport } = useThree();
   const desktopY = 0.475 - viewport.aspect * 0.75;
   const isWide = viewport.aspect >= 1;
 
   return useSpring({
     to: isWide
-      ? { position: [dX, desktopY, dZ] as [number, number, number] }
-      : { position: [mX, mY, mZ] as [number, number, number] },
+      ? { position: [dX, desktopY, dZ] }
+      : { position: [mX, mY, mZ] },
     config: { mass: 2, tension: 300, friction: 50 },
     delay: 1000,
   });
 };
 
-const ScaleSpring = (
-  delayScale: number
-): SpringValues<{ scale: [number, number, number] }> => {
+const ScaleSpring = (delayScale) => {
   const { viewport } = useThree();
   const mobileScale = 0.5;
-  const desktopScale =
-    viewport.aspect >= 1.15 ? 1.2 : 0.8 - viewport.aspect * 0.2;
+  const desktopScale = viewport.aspect >= 1.15 ? 1.2 : 0.8 - viewport.aspect * 0.2;
   const isWide = viewport.aspect >= 1;
 
   return useSpring({
-    from: { scale: [0, 0, 0] as [number, number, number] },
+    from: { scale: [0, 0, 0] },
     to: isWide
-      ? { scale: [desktopScale, 0.3, desktopScale] as [number, number, number] }
-      : { scale: [mobileScale, 0.2, mobileScale] as [number, number, number] },
+      ? { scale: [desktopScale, 0.3, desktopScale] }
+      : { scale: [mobileScale, 0.2, mobileScale] },
     config: { mass: 5, tension: 500, friction: 50 },
     delay: isWide ? 2500 : 3000 + delayScale,
   });
 };
 
-interface LetterProps {
-  letter: string;
-  mX: number;
-  dX: number;
-  delayScale: number;
-}
-
-const Letter: React.FC<LetterProps> = ({ letter, mX, dX, delayScale }) => {
+const Letter = ({ letter, mX, dX, delayScale }) => {
   const { viewport } = useThree();
   const position = PositionSpring(
     -viewport.aspect * mX,
@@ -64,10 +47,7 @@ const Letter: React.FC<LetterProps> = ({ letter, mX, dX, delayScale }) => {
 
   const { nodes, materials } = useGLTF(
     `assets/letters/bit_${letter.toLowerCase()}.gltf`
-  ) as unknown as GLTF & {
-    nodes: { [key: string]: { geometry: THREE.BufferGeometry } };
-    materials: { White: THREE.MeshStandardMaterial };
-  };
+  );
 
   materials.White.emissive = new THREE.Color(0xffffff);
   materials.White.emissiveIntensity = 0.2;
@@ -100,6 +80,6 @@ export function LastName() {
   );
 }
 
-['s', 'o', 'b', 'e', 'r', 'a', 'n'].forEach((letter) => {
+["s", "o", "b", "e", "r", "a", "n"].forEach((letter) => {
   useGLTF.preload(`assets/letters/bit_${letter}.gltf`);
 });
