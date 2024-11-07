@@ -23,11 +23,11 @@ const ThreeDEnv = () => {
   </>)
 };
 
-const Background: React.FC = () => {
+const Background = () => {
   const [start, setStart] = useState(false);
   const [audio, setAudio] = useState(true);
   const [showLoadingScreen, setShowLoadingScreen] = useState(true);
-  const handleAudio = (audio: boolean) => {
+  const handleAudio = (audio) => {
     audio ? (main.play()) : (main.pause())
     setAudio(audio)
   };
