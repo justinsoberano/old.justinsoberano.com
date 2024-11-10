@@ -80,11 +80,11 @@ export function Planets() {
       <AsteroidBelt 
         radius={25} 
         asteroidCount={isWide ? 150 : 75} 
-        yOffset={isWide ? 5 : 3} 
+        yOffset={isWide ? 2 : 3} 
         width={isWide ? 25 : 20}
-        minScale={0.15}
-        maxScale={0.4}
-        tilt={Math.PI / 5.14} // 35deg tilt
+        minScale={0.25}
+        maxScale={isWide ? 0.75 : 2}
+        tilt={Math.PI / 7} 
       />
       
       <Planet 
