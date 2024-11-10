@@ -1,7 +1,6 @@
 import { FilmPass } from "three/examples/jsm/postprocessing/FilmPass.js";
 import { GlitchPass } from "three/examples/jsm/postprocessing/GlitchPass.js";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
-
 import { Effects } from "@react-three/drei";
 import { useThree, extend } from "@react-three/fiber";
 

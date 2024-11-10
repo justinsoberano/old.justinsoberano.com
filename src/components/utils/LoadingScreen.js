@@ -14,7 +14,7 @@ export const LoadingScreen = ({ started, onStarted }) => {
 			<TopText> Ready Player One? </TopText>
 			<ReadyText onClick={onStarted}>{">"} INSERT COIN {"<"}</ReadyText>
 			<Version>
-				<Link href={repoLink} target="_blank" rel="noreferrer">v2.4.4</Link>
+				<Link href={repoLink} target="_blank" rel="noreferrer">v2.5</Link>
 			</Version>
 		</LoadingScreenContainer>
 	);

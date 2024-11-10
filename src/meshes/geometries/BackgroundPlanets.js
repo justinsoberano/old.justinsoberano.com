@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Sphere, Torus } from "@react-three/drei";
 import { useSpring, animated } from "@react-spring/three";
 import { useThree, useFrame } from "@react-three/fiber";
+import { AsteroidBelt } from "./AsteroidBelt";
 
 const useRotation = (speed) => {
   const ref = useRef(null);
@@ -62,17 +63,66 @@ export function Planets() {
 
   return (
     <group>
-      <animated.pointLight position={[0, 10, -40]} intensity={pointLightSpringAnimation.intensity} distance={200} castShadow />
-      <animated.pointLight position={[0, 0, -10]} intensity={secondPointLightSpringAnimation.intensity} distance={10} />
+      <animated.pointLight 
+        position={[0, 10, -40]} 
+        intensity={pointLightSpringAnimation.intensity} 
+        distance={200} 
+        castShadow 
+      />
+      <animated.pointLight 
+        position={[0, 0, -10]} 
+        intensity={secondPointLightSpringAnimation.intensity} 
+        distance={10} 
+      />
       
       <Planet position={[15, -10, -30]} scale={10} color="yellow" segments={[10, 6]} />
-      <Planet position={[18, -6, -20]} scale={3} color="aqua" rotationSpeed={{ x: 0.001, y: 0.001 }} segments={[8, 6]} />
-      <Planet position={[-10, -20, -20]} scale={10} color="hotpink" rotationSpeed={{ x: 0.001, y: 0.004 }} />
+      
+      <AsteroidBelt 
+        radius={25} 
+        asteroidCount={isWide ? 150 : 75} 
+        yOffset={isWide ? 5 : 3} 
+        width={isWide ? 25 : 20}
+        minScale={0.15}
+        maxScale={0.4}
+        tilt={Math.PI / 5.14} // 35deg tilt
+      />
+      
+      <Planet 
+        position={[18, -6, -20]} 
+        scale={3} 
+        color="aqua" 
+        rotationSpeed={{ x: 0.001, y: 0.001 }} 
+        segments={[8, 6]} 
+      />
+      
+      <Planet 
+        position={[-10, -20, -20]} 
+        scale={10} 
+        color="hotpink" 
+        rotationSpeed={{ x: 0.001, y: 0.004 }} 
+      />
+      
       <group ref={planetGroupRef}> 
-        <Planet position={[0, 5.5, -12]} scale={4} color="lightblue" rotationSpeed={{ x: 0.003, y: 0.002 }} />
-        <Planet position={[0, 5.5, -12]} scale={4} color="darkblue" segments={[12, 4]} />
-        <Ring position={[0, 5.5, -12]} scale={6} rotation={[2, 3.4, 0]} color="blue" />
+        <Planet 
+          position={[0, 5.5, -12]} 
+          scale={4} 
+          color="lightblue" 
+          rotationSpeed={{ x: 0.003, y: 0.002 }} 
+        />
+        <Planet 
+          position={[0, 5.5, -12]} 
+          scale={4} 
+          color="darkblue" 
+          segments={[12, 4]} 
+        />
+        <Ring 
+          position={[0, 5.5, -12]} 
+          scale={6} 
+          rotation={[2, 3.4, 0]} 
+          color="blue" 
+        />
       </group>
+      
       <Planet position={[15, -10, -30]} scale={10} color="orange" />
       <Planet position={[18, -6, -20]} scale={3} color="blue" />
       <Planet position={[-10, -20, -20]} scale={10} color="purple" />
