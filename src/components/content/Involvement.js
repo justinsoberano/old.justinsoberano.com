@@ -8,8 +8,10 @@ import {
   InvolvementImg, 
   InvolvementTitle 
 } from "./styles/InvolvementStyles";
+import { useHorizontalScroll } from "../utils/useHorizontalScroll";
 
 export const Involvement = ({ s, changeShow, changeTimer, changeShowInvolvement, data }) => {
+  const scrollRef = useHorizontalScroll();
   const fromTransform = s ? "translateY(200px)" : "translateY(0px)";
   const toTransform = s ? "translateY(0px)" : "translateY(200px)";
 
@@ -30,7 +32,7 @@ export const Involvement = ({ s, changeShow, changeTimer, changeShowInvolvement,
 
   return (
     <Spring fromTransform={fromTransform} toTransform={toTransform}>
-      <InvolvementContainer>{cards}
+      <InvolvementContainer ref={scrollRef}>{cards}
         <ProjectBackButton onClick={() => {
           changeShow(true);
           changeTimer(100);

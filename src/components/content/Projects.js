@@ -8,8 +8,10 @@ import { ProjectContainer,
          ProjectTech, 
          ProjectTitle
 } from "./styles/ProjectStyles";
+import { useHorizontalScroll } from "../utils/useHorizontalScroll";
 
 export const Projects = ({ s, changeShow, changeTimer, changeShowProjects, data }) => {
+  const scrollRef = useHorizontalScroll();
   const fromTransform = s ? "translateY(200px)" : "translateY(0px)";
   const toTransform = s ? "translateY(0px)" : "translateY(300px)";
 
@@ -31,7 +33,7 @@ export const Projects = ({ s, changeShow, changeTimer, changeShowProjects, data 
 
   return (
     <Spring fromTransform={fromTransform} toTransform={toTransform}>
-      <ProjectContainer>{cards}
+      <ProjectContainer ref={scrollRef}>{cards}
         <ProjectBackButton 
           onClick={() => {
             changeShow(true);

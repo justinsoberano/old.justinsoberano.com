@@ -2,6 +2,7 @@ import React from "react";
 import Spring from "../utils/Spring";
 import "../styles/global_stylesheet.css";
 import { Back, ExperienceCard, ExperienceContainer, ExperienceDate, ExperienceDesc, ExperienceEmp, ExperienceTech, ExperienceTitle } from "./styles/ExperienceStyles";
+import { useHorizontalScroll } from "../utils/useHorizontalScroll";
 
 const backgroundStyle = {
   backgroundSize: "cover",
@@ -15,6 +16,7 @@ const backgroundStyle = {
 }
 
 export const Experience = ({ s, changeShow, changeTimer, changeShowExperience, data }) => {
+  const scrollRef = useHorizontalScroll();
   const fromTransform = s ? "translateY(450px)" : "translateY(0px)";
   const toTransform = s ? "translateY(0px)" : "translateY(450px)";
   const cards = data.map((exp) => (
@@ -30,7 +32,7 @@ export const Experience = ({ s, changeShow, changeTimer, changeShowExperience, d
 
   return (
     <Spring fromTransform={fromTransform} toTransform={toTransform}>
-      <ExperienceContainer>
+      <ExperienceContainer ref={scrollRef}>
         {cards}
         <Back onClick={() => {
           changeShow(true);
