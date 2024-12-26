@@ -23,10 +23,9 @@ export const Spaceship = () => {
   const { scene } = useGLTF("assets/ship.glb");
   const spaceshipRef = useRef();
 
-  // Initial animation spring
   const spring = useSpring({
     from: {
-      position: [-20, 15, 20], // Start from far left and below
+      position: [-20, 15, 20],
       rotation: [0.05, Math.PI - 1, -0.3],
       scale: 0,
     },
