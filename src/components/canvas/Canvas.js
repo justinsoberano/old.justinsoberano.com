@@ -11,6 +11,7 @@ import MouseParallax from "./helpers/MouseParallax";
 import EffectsComposer from "./helpers/EffectsComposer";
 import { Sound } from "./styles/CanvasStyles";
 import { LastName } from "../../meshes/name/LastName";
+import {Spaceship} from "../../meshes/geometries/Spaceship";
 
 const main = new Audio("assets/audio/main.mp3");
 main.loop = true;
@@ -22,6 +23,7 @@ const ThreeDEnv = () => {
     <FirstName />
     <LastName />
     <Planets />
+    <Spaceship />
     <CameraAnimation onAnimationComplete={() => setCameraAnimationComplete(true)} />
     <MouseParallax enabled={cameraAnimationComplete} />
   </>)

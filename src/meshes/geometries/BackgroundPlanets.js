@@ -1,19 +1,8 @@
 import { useRef } from "react";
-import { Sphere, Torus } from "@react-three/drei";
-import { useSpring, animated } from "@react-spring/three";
 import { useThree, useFrame } from "@react-three/fiber";
+import { useSpring, animated } from "@react-spring/three";
+import { useGLTF } from "@react-three/drei";
 import { AsteroidBelt } from "./AsteroidBelt";
-
-const useRotation = (speed) => {
-  const ref = useRef(null);
-  useFrame(() => {
-    if (ref.current) {
-      ref.current.rotation.x += speed.x;
-      ref.current.rotation.y += speed.y;
-    }
-  });
-  return ref;
-};
 
 const PointLightSpring = (delay, intensityTo) => {
   return useSpring({
@@ -24,27 +13,31 @@ const PointLightSpring = (delay, intensityTo) => {
   });
 };
 
-const Planet = ({ position, scale, color, rotationSpeed = { x: 0.003, y: 0.003 }, segments = [12, 8] }) => {
-  const ref = useRotation(rotationSpeed);
-  return (
-    <Sphere args={[1, ...segments]} position={position} scale={scale} ref={ref}>
-      <meshStandardMaterial attach="material" color={color} />
-    </Sphere>
-  );
-};
-
-const Ring = ({ position, scale, rotation, color }) => {
-  const ref = useRef(null);
-  useFrame(({ clock }) => {
-    if (ref.current) {
-      ref.current.rotation.z += 0.003;
-      ref.current.rotation.y += Math.cos(clock.getElapsedTime()) * 0.0006;
+const useRotation = (mesh, speed = { x: 0.0005, y: 0.001 }) => {
+  useFrame(() => {
+    if (mesh.current) {
+      mesh.current.rotation.x += speed.x;
+      mesh.current.rotation.y += speed.y;
+      mesh.current.rotation.z += speed.z || 0;
     }
   });
+};
+
+const Planet = ({ modelPath, position, scale, rotation, rotationSpeed }) => {
+  const { scene } = useGLTF(modelPath);
+  const rotatingGroupRef = useRef();
+  
+  useRotation(rotatingGroupRef, rotationSpeed);
+
   return (
-    <Torus args={[1, 0.1, 10, 10]} rotation={rotation} position={position} scale={scale} ref={ref}>
-      <meshStandardMaterial color={color} roughness={1} />
-    </Torus>
+    <group position={position} rotation={rotation}>
+      <group ref={rotatingGroupRef}>
+        <primitive
+          object={scene}
+          scale={scale}
+        />
+      </group>
+    </group>
   );
 };
 
@@ -53,18 +46,20 @@ export function Planets() {
   const isWide = viewport.aspect >= 1;
   const pointLightSpringAnimation = PointLightSpring(2300, 1);
   const secondPointLightSpringAnimation = PointLightSpring(2300, isWide ? 0 : 1);
-  const planetGroupRef = useRef(null);
   
-  useFrame(() => {
-    if (planetGroupRef.current) {
-      planetGroupRef.current.position.x = isWide ? -15 : -6;
-    }
-  });
-
   return (
     <group>
-      <animated.pointLight position={[0, 10, -40]} intensity={pointLightSpringAnimation.intensity} distance={200} castShadow />
-      <animated.pointLight position={[0, 0, -10]} intensity={secondPointLightSpringAnimation.intensity} distance={10} />
+      <animated.pointLight 
+        position={[0, 10, -40]} 
+        intensity={pointLightSpringAnimation.intensity} 
+        distance={200} 
+        castShadow 
+      />
+      <animated.pointLight 
+        position={[0, 0, -10]} 
+        intensity={secondPointLightSpringAnimation.intensity} 
+        distance={10} 
+      />
       
       <AsteroidBelt 
         radius={25} 
@@ -75,22 +70,52 @@ export function Planets() {
         maxScale={isWide ? 0.75 : 2}
         tilt={Math.PI / 7} 
       />
-      
-      <Planet position={[18, -6, -20]} scale={3} color="aqua" rotationSpeed={{ x: 0.001, y: 0.001 }} segments={[8, 6]} />
-      <Planet position={[-10, -20, -20]} scale={10} color="hotpink" rotationSpeed={{ x: 0.001, y: 0.004 }} />
-      <Planet position={[15, -10, -30]} scale={10} color="yellow" segments={[10, 6]} />
-      
-      <group ref={planetGroupRef}> 
-        <Planet position={[0, 5.5, -12]} scale={4} color="lightblue" rotationSpeed={{ x: 0.003, y: 0.002 }} />
-        <Planet position={[0, 5.5, -12]} scale={4} color="darkblue" segments={[12, 4]} />
-        <Ring position={[0, 5.5, -12]} scale={6} rotation={[2, 3.4, 0]} color="blue" />
-      </group>
-      
-      <Planet position={[15, -10, -30]} scale={10} color="orange" />
-      <Planet position={[18, -6, -20]} scale={3} color="blue" />
-      <Planet position={[-10, -20, -20]} scale={10} color="purple" />
-      <Ring position={[15, -10, -30]} scale={15} rotation={[2, 2.6, 0]} color="purple" />
 
+      <Planet
+        modelPath="assets/planets/Earth.glb"
+        position={[-9, -19, -20]}
+        rotation={[0, -0.4, 0.1]}
+        scale={1}
+        rotationSpeed={{ x: 0.0002, y: 0.001, z: 0 }}
+      />
+      
+      <Planet
+        modelPath="assets/planets/Saturn.glb"
+        position={[15, -10, -30]}
+        scale={15}
+        rotation={[0.4, 0, -0.4]}
+        rotationSpeed={{ x: 0, y: 0.001, z: 0 }}
+      />
+      
+      <Planet
+        modelPath="assets/planets/Mars.glb"
+        position={isWide ? [-10, 0, -5] : [-4, 2, -5]}
+        scale={0.1}
+        rotation={[0, 1, 0]}
+        rotationSpeed={{ x: 0.0003, y: 0.0008 }}
+      />
+
+      <Planet
+        modelPath="assets/planets/Moon.glb"
+        position={isWide ? [-20, -16, -25] : [-10, -12, -25]}
+        scale={0.075}
+        rotationSpeed={{ x: 0.0005, y: 0.0004 }}
+      />  
+
+      <Planet
+        modelPath="assets/planets/Neptune.glb"
+        position={isWide ? [16, 16, -24] : [11, 18, -26]}
+        scale={0.2}
+        rotationSpeed={{ x: 0.0001, y: 0.0004 }}
+      />  
     </group>
   );
 }
+
+const planetModels = [
+  "Earth", "Jupiter", "Mars", "Moon", "Neptune", "Saturn"
+];
+
+planetModels.forEach(planet => {
+  useGLTF.preload(`assets/planets/${planet}.glb`);
+});
