@@ -1,6 +1,6 @@
 {
   "name": "justinsoberano.com",
-  "version": "2.5",
+  "version": "2.6",
   "private": true,
   "dependencies": {
     "@react-spring/three": "^9.7.2",
