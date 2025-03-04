@@ -1,6 +1,6 @@
 import React from "react";
 import Spring from "../utils/Spring";
-import "../styles/global_stylesheet.css";
+import "../global_stylesheet.css";
 import { Back, ExperienceCard, ExperienceContainer, ExperienceDate, ExperienceDesc, ExperienceEmp, ExperienceTech, ExperienceTitle } from "./styles/ExperienceStyles";
 import { useHorizontalScroll } from "../utils/useHorizontalScroll";
 

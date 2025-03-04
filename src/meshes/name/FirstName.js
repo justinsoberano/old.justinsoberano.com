@@ -92,7 +92,7 @@ const Letter = ({ letter, gltfPath, positionParams, rotationParams, scaleDelay, 
   );
 };
 
-export const LetterJ = () => (
+const LetterJ = () => (
   <Letter
     letter="J"
     gltfPath="assets/letters/bit_j.gltf"
@@ -103,7 +103,7 @@ export const LetterJ = () => (
   />
 );
 
-export const LetterU = () => (
+const LetterU = () => (
   <Letter
     letter="U"
     gltfPath="assets/letters/bit_u.gltf"
@@ -114,7 +114,7 @@ export const LetterU = () => (
   />
 );
 
-export const LetterS = () => (
+const LetterS = () => (
   <Letter
     letter="S"
     gltfPath="assets/letters/bit_s.gltf"
@@ -125,7 +125,7 @@ export const LetterS = () => (
   />
 );
 
-export const LetterT = () => (
+const LetterT = () => (
   <Letter
     letter="T"
     gltfPath="assets/letters/bit_t.gltf"
@@ -136,7 +136,7 @@ export const LetterT = () => (
   />
 );
 
-export const LetterI = () => (
+const LetterI = () => (
   <Letter
     letter="I"
     gltfPath="assets/letters/bit_i.gltf"
@@ -147,7 +147,7 @@ export const LetterI = () => (
   />
 );
 
-export const LetterN = () => (
+const LetterN = () => (
   <Letter
     letter="N"
     gltfPath="assets/letters/bit_n.gltf"
@@ -161,3 +161,16 @@ export const LetterN = () => (
 ["j", "u", "s", "t", "i", "n"].forEach(letter => {
   useGLTF.preload(`assets/letters/bit_${letter}.gltf`);
 });
+
+export default function FirstName() {
+  return (
+    <group>
+      <LetterJ />
+      <LetterU />
+      <LetterS />
+      <LetterT />
+      <LetterI />
+      <LetterN />
+    </group>
+  );
+}

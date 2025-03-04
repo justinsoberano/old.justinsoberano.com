@@ -5,12 +5,12 @@ import { LoadingScreen } from "../utils/LoadingScreen";
 import { Menu } from "../Menu";
 import { Planets } from "../../meshes/geometries/BackgroundPlanets";
 import CameraAnimation from "./helpers/CameraAnimation";
-import FirstName from "./helpers/FirstName";
 import MouseParallax from "./helpers/MouseParallax";
 
 import EffectsComposer from "./helpers/EffectsComposer";
 import { Sound } from "./styles/CanvasStyles";
-import { LastName } from "../../meshes/name/LastName";
+import FirstName from "../../meshes/name/FirstName";
+import {LastName} from "../../meshes/name/LastName";
 import {Spaceship} from "../../meshes/geometries/Spaceship";
 
 const main = new Audio("assets/audio/main.mp3");
