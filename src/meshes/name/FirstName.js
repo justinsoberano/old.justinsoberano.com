@@ -8,20 +8,28 @@ import { randFloat, randInt } from "three/src/math/MathUtils";
 const PositionSpring = (pX, pY, pZ, newX, delay) => {
   const { viewport } = useThree();
   const isWide = viewport.aspect >= 1;
+  
+  const randomZ = pZ + (Math.random() * 2 - 1);
+  
   return useSpring({
     from: { position: [0, 0, 7] },
     to: isWide
-      ? [{ position: [pX, pY, pZ] }, { position: [newX, 0, -1] }]
-      : [{ position: [pX, pY, pZ] }, { position: [newX * 2.1, 0, -3] }],
+      ? [{ position: [pX, pY, randomZ] }, { position: [newX, 0, -1] }]
+      : [{ position: [pX, pY, randomZ] }, { position: [newX * 2.1, 0, -3] }],
     delay: delay,
     config: { mass: 4, tension: isWide ? 200 : 100, friction: isWide ? 70 : 40 },
   });
 };
 
 const RotationSpring = (rX, rY, rZ, mass, tension, friction, delay) => {
+
+  const randomX = rX + (Math.random() * 2 - 1);
+  const randomY = rY + (Math.random() * 2 - 1);
+  const randomZ = rZ + (Math.random() * 2 - 1);
+  
   return useSpring({
     from: { rotation: [0, 0, 0] },
-    to: [{ rotation: [rX, rY, rZ] }, { rotation: [Math.PI / 2, 0, 0] }],
+    to: [{ rotation: [randomX, randomY, randomZ] }, { rotation: [Math.PI / 2, 0, 0] }],
     delay: delay,
     config: { mass, tension, friction },
   });

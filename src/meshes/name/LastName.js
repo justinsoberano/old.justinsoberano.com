@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import * as THREE from "three";
 import { useGLTF } from "@react-three/drei";
 import { useSpring, animated } from "@react-spring/three";
-import { useThree } from "@react-three/fiber";
+import { useThree, useFrame } from "@react-three/fiber";
+import { useColorContext } from "../../context/ColorContext";
 
 const PositionSpring = (mX, mY, mZ, dX, dZ) => {
   const { viewport } = useThree();
@@ -36,6 +37,11 @@ const ScaleSpring = (delayScale) => {
 
 const Letter = ({ letter, mX, dX, delayScale }) => {
   const { viewport } = useThree();
+  const { activeColor, hoverColor } = useColorContext();
+  const materialRef = useRef();
+  const targetColor = useRef(new THREE.Color(0xffffff));
+  const currentColor = useRef(new THREE.Color(0xffffff));
+  
   const position = PositionSpring(
     -viewport.aspect * mX,
     -1.4,
@@ -48,9 +54,37 @@ const Letter = ({ letter, mX, dX, delayScale }) => {
   const { nodes, materials } = useGLTF(
     `assets/letters/bit_${letter.toLowerCase()}.gltf`
   );
+  
+  useEffect(() => {
+    const createPastelColor = (hexColor) => {
+      if (!hexColor) return null;
+      
+      const color = new THREE.Color(hexColor);
+      color.lerp(new THREE.Color(0xffffff), 0.3);
+      return color;
+    };
+    
+    if (hoverColor) {
+      targetColor.current = createPastelColor(hoverColor);
+    } else if (activeColor) {
+      targetColor.current = createPastelColor(activeColor);
+    } else {
+      targetColor.current = new THREE.Color(0xffffff);
+    }
+    
+    materialRef.current = materials.White;
+    materialRef.current.emissiveIntensity = hoverColor ? 0.4 : (activeColor ? 0.3 : 0.2);
+  }, [activeColor, hoverColor, materials.White]);
 
-  materials.White.emissive = new THREE.Color(0xffffff);
-  materials.White.emissiveIntensity = 0.2;
+  useFrame(() => {
+    if (materialRef.current) {
+      const lerpFactor = hoverColor ? 0.15 : 0.05;
+      currentColor.current.lerp(targetColor.current, lerpFactor);
+      
+      materialRef.current.emissive.copy(currentColor.current);
+      materialRef.current.needsUpdate = true;
+    }
+  });
 
   return (
     <animated.mesh
@@ -80,6 +114,6 @@ export function LastName() {
   );
 }
 
-["s", "o", "b", "e", "r", "a", "n"].forEach((letter) => {
+["s", "o", "b", "e", "r", "a", "n", "o"].forEach((letter) => {
   useGLTF.preload(`assets/letters/bit_${letter}.gltf`);
 });
