@@ -22,6 +22,10 @@ export const ButtonContainer = styled.div`
   margin-right: auto;
   bottom: 5vh;
   ${noselect}
+  
+  @media (min-width: 768px) {
+    bottom: 8vh;
+  }
 `;
 
 export const button = `

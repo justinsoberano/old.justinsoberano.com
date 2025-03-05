@@ -50,6 +50,10 @@ export const InvolvementContainer = styled.div`
   margin-top: -190px;
   zoom: 0.8;
   ${noselect}
+  
+  @media (min-width: 768px) {
+    zoom: 1.0;
+  }
 `;
 
 export const InvolvementBackButton = styled.div`

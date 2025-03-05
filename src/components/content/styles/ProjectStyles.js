@@ -7,6 +7,10 @@ export const ProjectContainer = styled.div`
   margin-top: -268px;
   zoom: 0.8;
   ${noselect}
+  
+  @media (min-width: 768px) {
+    zoom: 1.0;
+  }
 `;
 
 export const ProjectCard = styled.div`

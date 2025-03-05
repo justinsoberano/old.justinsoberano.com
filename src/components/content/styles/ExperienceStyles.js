@@ -6,6 +6,10 @@ export const ExperienceContainer = styled.div`
   margin-top: -405px;
   position: relative;
   zoom: 0.8;
+  
+  @media (min-width: 768px) {
+    zoom: 1.0;
+  }
 `;
 
 export const ExperienceCard = styled.div`
@@ -80,7 +84,8 @@ export const Back = styled.div`
   padding: 8px;
   width: 100px;
   height: 340px;
-  margin: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
