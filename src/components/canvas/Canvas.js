@@ -6,63 +6,90 @@ import { Menu } from "../Menu";
 import { Planets } from "../../meshes/geometries/BackgroundPlanets";
 import CameraAnimation from "./helpers/CameraAnimation";
 import MouseParallax from "./helpers/MouseParallax";
-
 import EffectsComposer from "./helpers/EffectsComposer";
 import { Sound } from "./styles/CanvasStyles";
 import FirstName from "../../meshes/name/FirstName";
-import {LastName} from "../../meshes/name/LastName";
-import {Spaceship} from "../../meshes/geometries/Spaceship";
+import { LastName } from "../../meshes/name/LastName";
+import { Spaceship } from "../../meshes/geometries/Spaceship";
 import FrameRateLimit from "./helpers/FrameRateLimit";
 
-const main = new Audio("assets/audio/main.mp3");
-main.loop = true;
+const backgroundMusic = new Audio("assets/audio/main.mp3");
+backgroundMusic.loop = true;
 
-const ThreeDEnv = () => {
-  const [cameraAnimationComplete, setCameraAnimationComplete] = useState(false);
-
-  return (<>
-    <FirstName />
-    <LastName />
-    <Planets />
-    <Spaceship />
-    <CameraAnimation onAnimationComplete={() => setCameraAnimationComplete(true)} />
-    <MouseParallax enabled={cameraAnimationComplete} />
-    <FrameRateLimit fps={60} />
-  </>)
+const ThreeDEnvironment = ({ cameraAnimationComplete, setCameraAnimationComplete }) => {
+  return (
+    <>
+      <FirstName />
+      <LastName />
+      <Planets />
+      <Spaceship />
+      <CameraAnimation 
+        onAnimationComplete={() => setCameraAnimationComplete(true)} 
+      />
+      <MouseParallax enabled={cameraAnimationComplete} />
+      <FrameRateLimit fps={60} />
+    </>
+  );
 };
 
-const Background = () => {
-  const [start, setStart] = useState(false);
-  const [audio, setAudio] = useState(true);
+const SceneCanvas = () => {
+  const [sceneStarted, setSceneStarted] = useState(false);
+  const [audioEnabled, setAudioEnabled] = useState(true);
   const [showLoadingScreen, setShowLoadingScreen] = useState(true);
+  const [cameraAnimationComplete, setCameraAnimationComplete] = useState(false);
   
-  const handleAudio = (audio) => {
-    audio ? (main.play()) : (main.pause())
-    setAudio(audio)
+  const toggleAudio = () => {
+    const newAudioState = !audioEnabled;
+    newAudioState ? backgroundMusic.play() : backgroundMusic.pause();
+    setAudioEnabled(newAudioState);
   };
   
-  const handleShowLoadingScreen = () => {
-    setStart(true);
-    main.play();
-    setTimeout(() => {setShowLoadingScreen(false)}, 200);
+  const startScene = () => {
+    setSceneStarted(true);
+    backgroundMusic.play();
+    setTimeout(() => setShowLoadingScreen(false), 200);
   };
 
   return (
     <>
       <Canvas dpr={1} shadows frameloop="demand">
         <EffectsComposer />
-        <Stars radius={0.1} depth={30} count={2000} factor={0.7} saturation={2} fade speed={2} />
-        <Suspense fallback={null}> {start && <ThreeDEnv/>} </Suspense>
+        <Stars 
+          radius={0.1} 
+          depth={30} 
+          count={2000} 
+          factor={0.7} 
+          saturation={2} 
+          fade 
+          speed={2} 
+        />
+        <Suspense fallback={null}>
+          {sceneStarted && (
+            <ThreeDEnvironment 
+              cameraAnimationComplete={cameraAnimationComplete}
+              setCameraAnimationComplete={setCameraAnimationComplete}
+            />
+          )}
+        </Suspense>
       </Canvas>
-      {start && (<>
-        <Menu />
-        <Sound onClick={() => handleAudio(!audio)}>
-          {audio ? "PAUSE MUSIC" : "PLAY MUSIC"}
-        </Sound>
-      </>)}
-      {showLoadingScreen && <LoadingScreen started={start} onStarted={handleShowLoadingScreen} />}
+      
+      {sceneStarted && (
+        <>
+          <Menu />
+          <Sound onClick={toggleAudio}>
+            {audioEnabled ? "PAUSE MUSIC" : "PLAY MUSIC"}
+          </Sound>
+        </>
+      )}
+      
+      {showLoadingScreen && (
+        <LoadingScreen 
+          started={sceneStarted} 
+          onStarted={startScene} 
+        />
+      )}
     </>
   );
 };
 
-export default Background;
+export default SceneCanvas;

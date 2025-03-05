@@ -63,9 +63,10 @@ export const ProjectDesc = styled.div`
 export const ProjectBackButton = styled.div`
   cursor: pointer;
   font-weight: bold;
+  font-size: 20px;
   font-family: 'Minecraft';
   padding: 8px;
-  width: 50px;
+  width: 100px;
   height: 206px;
   margin-right: 10px;
   margin-top: 10px;
@@ -85,6 +86,7 @@ export const ProjectBackButton = styled.div`
   &:hover {
     border: 8px solid rgb(164, 32, 32);
     padding: 4px;
+    font-style: italic;
   }
   &:active {
     border: 8px solid rgb(101, 20, 20);

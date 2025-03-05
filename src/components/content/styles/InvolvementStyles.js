@@ -56,8 +56,9 @@ export const InvolvementBackButton = styled.div`
   cursor: pointer;
   font-weight: bold;
   font-family: 'Minecraft';
+  font-size: 20px;
   padding: 8px;
-  width: 50px;
+  width: 100px;
   height: 136px;
   margin-right: 10px;
   margin-top: 10px;
@@ -77,6 +78,7 @@ export const InvolvementBackButton = styled.div`
   &:hover {
     border: 8px solid rgb(164, 32, 32);
     padding: 4px;
+    font-style: italic;
   }
   &:active {
     border: 8px solid rgb(101, 20, 20);
