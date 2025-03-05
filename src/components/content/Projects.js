@@ -9,11 +9,20 @@ import { ProjectContainer,
          ProjectBackButton
 } from "./styles/ProjectStyles";
 import { useHorizontalScroll } from "../utils/useHorizontalScroll";
+import { useColorContext } from "../../context/ColorContext";
 
 export const Projects = ({ s, changeShow, changeTimer, changeShowProjects, data }) => {
   const scrollRef = useHorizontalScroll();
+  const { setActiveColor } = useColorContext();
   const fromTransform = s ? "translateY(200px)" : "translateY(0px)";
   const toTransform = s ? "translateY(0px)" : "translateY(300px)";
+
+  const handleBack = () => {
+    changeShow(true);
+    changeTimer(100);
+    changeShowProjects(false);
+    setActiveColor(null);
+  };
 
   const cards = data.map((project) => (
     <ProjectCard key={project.id}>
@@ -34,12 +43,7 @@ export const Projects = ({ s, changeShow, changeTimer, changeShowProjects, data 
   return (
     <Spring fromTransform={fromTransform} toTransform={toTransform}>
       <ProjectContainer ref={scrollRef}>{cards}
-        <ProjectBackButton 
-          onClick={() => {
-            changeShow(true);
-            changeTimer(100);
-            changeShowProjects(false);
-          }}>back</ProjectBackButton>
+        <ProjectBackButton onClick={handleBack}>back</ProjectBackButton>
       </ProjectContainer>
     </Spring>
   );

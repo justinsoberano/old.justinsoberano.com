@@ -56,21 +56,8 @@ const Letter = ({ letter, mX, dX, delayScale }) => {
   );
   
   useEffect(() => {
-    const createPastelColor = (hexColor) => {
-      if (!hexColor) return null;
-      
-      const color = new THREE.Color(hexColor);
-      color.lerp(new THREE.Color(0xffffff), 0.3);
-      return color;
-    };
-    
-    if (hoverColor) {
-      targetColor.current = createPastelColor(hoverColor);
-    } else if (activeColor) {
-      targetColor.current = createPastelColor(activeColor);
-    } else {
-      targetColor.current = new THREE.Color(0xffffff);
-    }
+    const createPastelColor = (hexColor) => hexColor ? new THREE.Color(hexColor).lerp(new THREE.Color(0xffffff), 0.3) : null;
+    targetColor.current = hoverColor ? createPastelColor(hoverColor) : activeColor ? createPastelColor(activeColor) : new THREE.Color(0xffffff);
     
     materialRef.current = materials.White;
     materialRef.current.emissiveIntensity = 0.2;
@@ -78,9 +65,7 @@ const Letter = ({ letter, mX, dX, delayScale }) => {
 
   useFrame(() => {
     if (materialRef.current) {
-      const lerpFactor = hoverColor ? 0.15 : 0.05;
-      currentColor.current.lerp(targetColor.current, lerpFactor);
-      
+      currentColor.current.lerp(targetColor.current, hoverColor ? 0.15 : 0.05);
       materialRef.current.emissive.copy(currentColor.current);
       materialRef.current.needsUpdate = true;
     }

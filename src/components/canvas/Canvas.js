@@ -12,6 +12,7 @@ import { Sound } from "./styles/CanvasStyles";
 import FirstName from "../../meshes/name/FirstName";
 import {LastName} from "../../meshes/name/LastName";
 import {Spaceship} from "../../meshes/geometries/Spaceship";
+import FrameRateLimit from "./helpers/FrameRateLimit";
 
 const main = new Audio("assets/audio/main.mp3");
 main.loop = true;
@@ -26,6 +27,7 @@ const ThreeDEnv = () => {
     <Spaceship />
     <CameraAnimation onAnimationComplete={() => setCameraAnimationComplete(true)} />
     <MouseParallax enabled={cameraAnimationComplete} />
+    <FrameRateLimit fps={60} />
   </>)
 };
 
@@ -47,7 +49,7 @@ const Background = () => {
 
   return (
     <>
-      <Canvas dpr={1} shadows>
+      <Canvas dpr={1} shadows frameloop="demand">
         <EffectsComposer />
         <Stars radius={0.1} depth={30} count={2000} factor={0.7} saturation={2} fade speed={2} />
         <Suspense fallback={null}> {start && <ThreeDEnv/>} </Suspense>
