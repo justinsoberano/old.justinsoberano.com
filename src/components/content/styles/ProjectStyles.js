@@ -66,15 +66,22 @@ export const ProjectBackButton = styled.div`
   font-family: 'Minecraft';
   padding: 8px;
   width: 50px;
+  height: 206px;
   margin-right: 10px;
-  display: inline-block;
+  margin-top: 10px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   color: white;
-  height: 50px;
-  line-height: 50px;
   background: black;
   text-align: center;
   border-radius: 15px;
   border: 4px solid rgb(164, 32, 32);
+  vertical-align: top;
+  background-color: rgba(0, 0, 0, 0.758);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
   &:hover {
     border: 8px solid rgb(164, 32, 32);
     padding: 4px;

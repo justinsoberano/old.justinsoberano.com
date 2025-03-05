@@ -1,12 +1,12 @@
 import React from "react";
 import Spring from "../utils/Spring";
-import { ProjectBackButton } from "./styles/ProjectStyles";
 import { 
   InvolvementCard, 
   InvolvementContainer, 
   InvolvementDesc, 
   InvolvementImg, 
-  InvolvementTitle 
+  InvolvementTitle,
+  InvolvementBackButton 
 } from "./styles/InvolvementStyles";
 import { useHorizontalScroll } from "../utils/useHorizontalScroll";
 
@@ -33,11 +33,11 @@ export const Involvement = ({ s, changeShow, changeTimer, changeShowInvolvement,
   return (
     <Spring fromTransform={fromTransform} toTransform={toTransform}>
       <InvolvementContainer ref={scrollRef}>{cards}
-        <ProjectBackButton onClick={() => {
+        <InvolvementBackButton onClick={() => {
           changeShow(true);
           changeTimer(100);
           changeShowInvolvement(false);
-        }}>back</ProjectBackButton>
+        }}>back</InvolvementBackButton>
       </InvolvementContainer>
     </Spring>
   );

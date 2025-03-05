@@ -73,7 +73,7 @@ const Letter = ({ letter, mX, dX, delayScale }) => {
     }
     
     materialRef.current = materials.White;
-    materialRef.current.emissiveIntensity = hoverColor ? 0.4 : (activeColor ? 0.3 : 0.2);
+    materialRef.current.emissiveIntensity = 0.2;
   }, [activeColor, hoverColor, materials.White]);
 
   useFrame(() => {

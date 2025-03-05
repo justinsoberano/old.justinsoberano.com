@@ -1,12 +1,12 @@
 import React from "react";
 import Spring from "../utils/Spring";
 import { ProjectContainer, 
-         ProjectBackButton, 
          ProjectCard, 
          ProjectDesc, 
          ProjectImg, 
          ProjectTech, 
-         ProjectTitle
+         ProjectTitle,
+         ProjectBackButton
 } from "./styles/ProjectStyles";
 import { useHorizontalScroll } from "../utils/useHorizontalScroll";
 
