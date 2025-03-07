@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Spring from "../utils/Spring";
 import { ProjectContainer, 
          ProjectCard, 
@@ -14,15 +14,38 @@ import { useColorContext } from "../../context/ColorContext";
 export const Projects = ({ s, changeShow, changeTimer, changeShowProjects, data }) => {
   const scrollRef = useHorizontalScroll();
   const { setActiveColor } = useColorContext();
+  const [isExiting, setIsExiting] = useState(false);
+  
+  const timeoutsRef = useRef([]);
+  
   const fromTransform = s ? "translateY(200px)" : "translateY(0px)";
-  const toTransform = s ? "translateY(0px)" : "translateY(300px)";
+  const toTransform = isExiting ? "translateY(300px)" : (s ? "translateY(0px)" : "translateY(300px)");
+  
+  const fromOpacity = 1;
+  const toOpacity = isExiting ? 0 : 1;
 
   const handleBack = () => {
-    changeShow(true);
-    changeTimer(100);
-    changeShowProjects(false);
-    setActiveColor(null);
+    setIsExiting(true);
+    
+    const timeout1 = setTimeout(() => {
+      changeShow(true);
+      changeTimer(0);
+    }, 200);
+    timeoutsRef.current.push(timeout1);
+    
+    const timeout2 = setTimeout(() => {
+      changeShowProjects(false);
+      setActiveColor(null);
+    }, 300);
+    timeoutsRef.current.push(timeout2);
   };
+
+  useEffect(() => {
+    return () => {
+      timeoutsRef.current.forEach((timerId) => clearTimeout(timerId));
+      timeoutsRef.current = [];
+    };
+  }, []);
 
   const cards = data.map((project) => (
     <ProjectCard key={project.id}>
@@ -41,7 +64,13 @@ export const Projects = ({ s, changeShow, changeTimer, changeShowProjects, data 
   ));
 
   return (
-    <Spring fromTransform={fromTransform} toTransform={toTransform}>
+    <Spring 
+      fromTransform={fromTransform} 
+      toTransform={toTransform}
+      fromOpacity={fromOpacity}
+      toOpacity={toOpacity}
+      config={{ mass: 1, tension: 200, friction: isExiting ? 20 : 50 }}
+    >
       <ProjectContainer ref={scrollRef}>{cards}
         <ProjectBackButton onClick={handleBack}>back</ProjectBackButton>
       </ProjectContainer>

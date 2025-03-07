@@ -1,4 +1,3 @@
-
 import { LoadingScreenContainer,
 				 TopText, 
 				 ReadyText, 
@@ -12,7 +11,9 @@ export const LoadingScreen = ({ started, onStarted }) => {
 	return ( 
 		<LoadingScreenContainer className={started ? "start" : ""}>
 			<TopText> Ready Player One? </TopText>
-			<ReadyText onClick={onStarted}>{">"} INSERT COIN {"<"}</ReadyText>
+			<ReadyText onClick={onStarted}>
+				<span className="blink-bold">{">"}</span> PRESS START <span className="blink-bold">{"<"}</span>
+			</ReadyText>
 			<Version>
 				<Link href={repoLink} target="_blank" rel="noreferrer">v2.6.1</Link>
 			</Version>

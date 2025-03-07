@@ -8,7 +8,7 @@ export const ExperienceContainer = styled.div`
   zoom: 0.8;
   
   @media (min-width: 768px) {
-    zoom: 1.0;
+    zoom: 0.9;
   }
 `;
 

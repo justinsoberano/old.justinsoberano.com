@@ -4,20 +4,24 @@ import { Contact } from "../content/Contact";
 import { Involvement } from "../content/Involvement";
 import { Projects } from "../content/Projects";
 
-export const ContentDisplay = ({ activeContent, setActiveContent, timer, setTimer }) => {
+export const ContentDisplay = ({ activeContent, setActiveContent, timer, setTimer, isExiting }) => {
   const [experienceData, setExperienceData] = useState([]);
   const [projectsData, setProjectsData] = useState([]);
   const [involvementData, setInvolvementData] = useState([]);
   
   useEffect(() => {
     async function fetchData() {
-      const experience = await fetch("https://data.justinsoberano.com/info/experiences.json").then((res) => res.json());
-      const projects = await fetch("https://data.justinsoberano.com/info/projects.json").then((res) => res.json());
-      const involvement = await fetch("https://data.justinsoberano.com/info/involvement.json").then((res) => res.json());
-      setExperienceData(experience);
-      setProjectsData(projects);
-      setInvolvementData(involvement);
-      setTimer(0);
+      try {
+        const experience = await fetch("https://data.justinsoberano.com/info/experiences.json").then((res) => res.json());
+        const projects = await fetch("https://data.justinsoberano.com/info/projects.json").then((res) => res.json());
+        const involvement = await fetch("https://data.justinsoberano.com/info/involvement.json").then((res) => res.json());
+        setExperienceData(experience);
+        setProjectsData(projects);
+        setInvolvementData(involvement);
+        setTimer(0);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     }
     fetchData();
   }, [setTimer]);
@@ -31,6 +35,7 @@ export const ContentDisplay = ({ activeContent, setActiveContent, timer, setTime
           changeTimer={setTimer}
           changeShowExperience={(show) => setActiveContent(show ? "experience" : null)}
           s={activeContent === "experience"}
+          isExiting={isExiting}
         />
       )}
       {activeContent === "projects" && (
@@ -40,6 +45,7 @@ export const ContentDisplay = ({ activeContent, setActiveContent, timer, setTime
           changeTimer={setTimer}
           changeShowProjects={(show) => setActiveContent(show ? "projects" : null)}
           s={activeContent === "projects"}
+          isExiting={isExiting}
         />
       )}
       {activeContent === "involvement" && (
@@ -49,6 +55,7 @@ export const ContentDisplay = ({ activeContent, setActiveContent, timer, setTime
           changeTimer={setTimer}
           changeShowInvolvement={(show) => setActiveContent(show ? "involvement" : null)}
           s={activeContent === "involvement"}
+          isExiting={isExiting}
         />
       )}
       {activeContent === "contact" && (
